@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Allwin's Kitchen - Cloud Kitchen | Order Food Online</title>
+    <meta name="description"
+        content="Allwin's Kitchen - Experience authentic flavors crafted with soul. Fresh ingredients, masterful recipes, and blazing fast delivery from our cloud kitchen straight to your doorstep." />
+    <meta name="keywords"
+        content="cloud kitchen, food delivery, allwins kitchen, authentic food, fast delivery, order online" />
+    <meta name="author" content="Allwin's Kitchen" />
+    <meta property="og:title" content="Allwin's Kitchen - Cloud Kitchen" />
+    <meta property="og:description" content="Experience authentic flavors crafted with soul. Order now!" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/jpeg" href="/Logo.jpeg" />
+    <link rel="canonical" href="https://allwinskitchen.com" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#D97706",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#18181b",
+                        "surface-light": "#F3F4F6",
+                        "surface-dark": "#27272a",
+                    },
+                    fontFamily: {
+                        display: ["Oswald", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                        serif: ["Playfair Display", "serif"],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .retro-shadow {
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-pattern {
+            background-color: #ffffff;
+            background-image: radial-gradient(#e5e7eb 0.5px, transparent 0.5px), radial-gradient(#e5e7eb 0.5px, #ffffff 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+        }
+
+        .dark .hero-pattern {
+            background-color: #18181b;
+            background-image: radial-gradient(#27272a 0.5px, transparent 0.5px), radial-gradient(#27272a 0.5px, #18181b 0.5px);
+        }
+
+        .whatsapp-float {
+            animation: pulse-glow 2s infinite;
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 0 20px 10px rgba(37, 211, 102, 0.2);
+            }
+        }
+
+        .cart-badge {
+            animation: bounce-subtle 1s ease-in-out;
+        }
+
+        @keyframes bounce-subtle {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 font-body transition-colors duration-300">
+
+    <!-- Navigation -->
+    <nav
+        class="fixed w-full z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="#" class="flex-shrink-0 flex items-center gap-3">
+                    <img src="/Logo_Without_Bg.png" alt="Allwin's Kitchen Logo" class="h-12 w-12 object-contain" />
+                    <div class="flex flex-col">
+                        <span
+                            class="font-display font-bold text-2xl tracking-wide uppercase leading-none">Allwin's</span>
+                        <span
+                            class="font-serif italic text-xs tracking-widest text-gray-500 dark:text-gray-400">KITCHEN</span>
+                    </div>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary transition font-medium"
+                        href="#menu">Menu</a>
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary transition font-medium"
+                        href="#about">Our Story</a>
+                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary transition font-medium"
+                        href="#contact">Contact</a>
+                    <button id="theme-toggle"
+                        class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                        <span class="material-icons dark:hidden">dark_mode</span>
+                        <span class="material-icons hidden dark:inline">light_mode</span>
+                    </button>
+                    <button id="cart-btn"
+                        class="relative p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                        <span class="material-icons">shopping_cart</span>
+                        <span id="cart-count"
+                            class="hidden absolute -top-1 -right-1 bg-primary text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold cart-badge">0</span>
+                    </button>
+                    <a href="#order"
+                        class="bg-primary hover:bg-yellow-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5">
+                        Order Now
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center gap-2">
+                    <button id="theme-toggle-mobile"
+                        class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                        <span class="material-icons dark:hidden">dark_mode</span>
+                        <span class="material-icons hidden dark:inline">light_mode</span>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-gray-700 dark:text-gray-300 hover:text-primary">
+                        <span class="material-icons text-3xl">menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="md:hidden hidden bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-800">
+            <div class="px-4 py-4 space-y-3">
+                <a class="block text-gray-700 dark:text-gray-300 hover:text-primary transition font-medium py-2"
+                    href="#menu">Menu</a>
+                <a class="block text-gray-700 dark:text-gray-300 hover:text-primary transition font-medium py-2"
+                    href="#about">Our Story</a>
+                <a class="block text-gray-700 dark:text-gray-300 hover:text-primary transition font-medium py-2"
+                    href="#contact">Contact</a>
+                <a href="#order"
+                    class="block w-full bg-primary hover:bg-yellow-600 text-white px-6 py-2.5 rounded-full font-bold text-center shadow-lg">
+                    Order Now
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden hero-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-center lg:text-left fade-in">
+                    <div
+                        class="inline-block px-4 py-1.5 rounded-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm mb-2">
+                        <div class="flex items-center gap-2">
+                            <span class="relative flex h-2 w-2">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                            </span>
+                            <span
+                                class="text-xs font-bold tracking-wider uppercase text-gray-600 dark:text-gray-300">Now
+                                Open • Accepting Orders</span>
+                        </div>
+                    </div>
+                    <h1 class="font-display font-bold text-gray-900 dark:text-white leading-none retro-shadow">
+                        <span class="block text-6xl lg:text-8xl tracking-tight mb-1">ALLWIN'S</span>
+                        <span
+                            class="block text-6xl lg:text-8xl tracking-tight text-gray-800 dark:text-gray-200">KITCHEN</span>
+                    </h1>
+                    <h2 class="text-2xl lg:text-3xl font-serif italic text-primary font-medium mt-2">
+                        Authentic Flavors, Crafted With Soul.
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-lg mx-auto lg:mx-0 leading-relaxed mt-4">
+                        Experience the taste of home-style cooking elevated for the modern palate. From our cloud
+                        kitchen straight to your doorstep.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-6">
+                        <a href="#order"
+                            class="bg-primary text-white px-10 py-4 rounded-xl font-bold text-xl hover:bg-yellow-600 transition flex items-center justify-center gap-2 shadow-xl shadow-primary/30 transform hover:-translate-y-1">
+                            Order Now
+                            <span class="material-icons text-xl">arrow_forward</span>
+                        </a>
+                        <a href="#menu"
+                            class="bg-transparent border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition text-center">
+                            View Menu
+                        </a>
+                    </div>
+                    <div
+                        class="pt-8 flex items-center justify-center lg:justify-start gap-6 text-sm text-gray-500 dark:text-gray-400 font-medium flex-wrap">
+                        <div class="flex items-center gap-1.5">
+                            <span class="material-icons text-primary text-lg">star</span>
+                            <span class="text-gray-700 dark:text-gray-300 font-bold">4.9/5 Rating</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="material-icons text-primary text-lg">timer</span>
+                            <span class="text-gray-700 dark:text-gray-300 font-bold">30 Min Delivery</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="material-icons text-primary text-lg">local_shipping</span>
+                            <span class="text-gray-700 dark:text-gray-300 font-bold">Free Delivery</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative group mt-8 lg:mt-0">
+                    <div
+                        class="absolute -inset-4 bg-primary/20 rounded-full blur-2xl group-hover:bg-primary/30 transition duration-500">
+                    </div>
+                    <img alt="Delicious Shami Kabab"
+                        class="relative rounded-2xl shadow-2xl transform rotate-2 hover:rotate-0 transition duration-500 w-full object-cover h-[500px]"
+                        src="/Shami_Kabab.png" />
+                    <div class="absolute -bottom-6 -left-6 bg-white dark:bg-surface-dark p-4 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 animate-bounce"
+                        style="animation-duration: 3s;">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-green-100 dark:bg-green-900/30 p-2 rounded-full">
+                                <span class="material-icons text-green-600 dark:text-green-400">eco</span>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 font-medium">Daily Fresh</p>
+                                <p class="font-bold text-gray-900 dark:text-white">Ingredients</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-16 bg-surface-light dark:bg-surface-dark border-y border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-display font-bold text-gray-900 dark:text-white mb-4">How It Works</h2>
+                <div class="w-16 h-1 bg-primary mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 relative">
+                <div
+                    class="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-gray-300 dark:bg-gray-600 border-t-2 border-dashed z-0">
+                </div>
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div
+                        class="w-24 h-24 bg-white dark:bg-background-dark rounded-full shadow-lg flex items-center justify-center border-4 border-surface-light dark:border-surface-dark mb-6">
+                        <span class="material-icons text-primary text-4xl">touch_app</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">1. Browse & Order</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm px-4">Choose from our curated menu and place your
+                        order via WhatsApp or call.</p>
+                </div>
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div
+                        class="w-24 h-24 bg-white dark:bg-background-dark rounded-full shadow-lg flex items-center justify-center border-4 border-surface-light dark:border-surface-dark mb-6">
+                        <span class="material-icons text-primary text-4xl">skillet</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">2. We Cook Fresh</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm px-4">Our expert chefs prepare your meal with
+                        passion using fresh ingredients.</p>
+                </div>
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div
+                        class="w-24 h-24 bg-white dark:bg-background-dark rounded-full shadow-lg flex items-center justify-center border-4 border-surface-light dark:border-surface-dark mb-6">
+                        <span class="material-icons text-primary text-4xl">delivery_dining</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">3. Fast Delivery</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm px-4">Hot and fresh food delivered to your
+                        doorstep in 30 minutes or less.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="py-20 bg-background-light dark:bg-background-dark" id="menu">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+                <div>
+                    <h2 class="text-4xl font-display font-bold text-gray-900 dark:text-white mb-2">Our Menu</h2>
+                    <p class="text-gray-500 dark:text-gray-400">Signature dishes, ready to be devoured.</p>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="menu-grid">
+                <!-- Menu Item 1 -->
+                <div class="menu-item group bg-white dark:bg-surface-dark rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 border border-gray-100 dark:border-gray-700"
+                    data-name="Allwin's Special Curry" data-price="14.99">
+                    <div class="relative overflow-hidden h-56">
+                        <img alt="Allwin's Special - Drunken Chicken"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
+                            src="/Drunken_Chicken.png" />
+                        <div
+                            class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                            Best Seller</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3
+                                class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition">
+                                Allwin's Special Curry</h3>
+                            <span class="text-lg font-display font-bold text-primary">$14.99</span>
+                        </div>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">Slow-cooked tender chicken in a rich,
+                            aromatic spice blend served with saffron rice.</p>
+                        <button
+                            class="add-to-cart w-full bg-surface-light dark:bg-gray-800 hover:bg-primary hover:text-white text-gray-900 dark:text-white py-3 rounded-lg font-bold transition flex items-center justify-center gap-2">
+                            <span class="material-icons text-sm">add_shopping_cart</span>
+                            Add to Order
+                        </button>
+                    </div>
+                </div>
+                <!-- Menu Item 2 -->
+                <div class="menu-item group bg-white dark:bg-surface-dark rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 border border-gray-100 dark:border-gray-700"
+                    data-name="Rustic Pizza" data-price="12.50">
+                    <div class="relative overflow-hidden h-56">
+                        <img alt="Rustic Pizza"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRRGnAnz_wcp8QU-PNWlNYvFpsGKpgtsbd-2JiojBz7SoM18j-kil8EmfKMdQnesjuLuzzIJ1EqmqvBtYZlPWiF847ACu13tSDcmkqykT0Sldalzey3yMIURTttixa1cFAHivj1e1Hj0nUclcEV-j86Xz56HXWKKLThcXzFjU_sY0RLtv1NRzwQRkP55TDwjz9SVBkhbIVZjiVJnOTq3eo7DPq2ta2fyn0EWhorFz-z4g_lSxtRdENi4DVBbTK_-WS6qsdmnzrIqFa" />
+                        <div
+                            class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                            Popular</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3
+                                class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition">
+                                Rustic Pizza</h3>
+                            <span class="text-lg font-display font-bold text-primary">$12.50</span>
+                        </div>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">Wood-fired base topped with fresh
+                            mozzarella, basil, and our secret tomato sauce.</p>
+                        <button
+                            class="add-to-cart w-full bg-surface-light dark:bg-gray-800 hover:bg-primary hover:text-white text-gray-900 dark:text-white py-3 rounded-lg font-bold transition flex items-center justify-center gap-2">
+                            <span class="material-icons text-sm">add_shopping_cart</span>
+                            Add to Order
+                        </button>
+                    </div>
+                </div>
+                <!-- Menu Item 3 -->
+                <div class="menu-item group bg-white dark:bg-surface-dark rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 border border-gray-100 dark:border-gray-700"
+                    data-name="Spicy Thai Noodles" data-price="11.00">
+                    <div class="relative overflow-hidden h-56">
+                        <img alt="Spicy Thai Noodles"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYzpDB4F-rp82CBVLzx_Vr05uzc_23_PkshX3CdWjzfLYLmeYj5nadb8yVkJLgvUBDSMsCrcTt42KYEDh91StCdO3VGKpGU4rUTDIyhuVWCIXbk-zG40gKk5CtMhktDertnEyAIL-mx0SWXECSo8HW95PyGRfK9jOiLkFJrlDETTxiE0gskwI1jNlhd8GBWB5xVJc0-J3_ZyBaL7QHPwIT4mzynqINVJuW54LSmaLLJu7n8tdZBD5noVr08BWiLxexZidNHrn1xlP4" />
+                        <div
+                            class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                            Veg</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3
+                                class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition">
+                                Spicy Thai Noodles</h3>
+                            <span class="text-lg font-display font-bold text-primary">$11.00</span>
+                        </div>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">Wok-tossed noodles with crunchy
+                            vegetables, peanuts, and a zesty lime dressing.</p>
+                        <button
+                            class="add-to-cart w-full bg-surface-light dark:bg-gray-800 hover:bg-primary hover:text-white text-gray-900 dark:text-white py-3 rounded-lg font-bold transition flex items-center justify-center gap-2">
+                            <span class="material-icons text-sm">add_shopping_cart</span>
+                            Add to Order
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 bg-surface-light dark:bg-surface-dark" id="about">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-display font-bold text-gray-900 dark:text-white mb-6">Our Story</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                        Allwin's Kitchen was born from a passion for authentic home-cooked meals. What started as a
+                        small family kitchen has grown into a beloved cloud kitchen serving hundreds of happy customers
+                        every day.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                        We believe in using only the freshest ingredients, traditional recipes passed down through
+                        generations, and modern kitchen technology to bring you the perfect meal every time.
+                    </p>
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div class="bg-white dark:bg-background-dark p-4 rounded-xl shadow">
+                            <div class="text-3xl font-display font-bold text-primary">500+</div>
+                            <div class="text-sm text-gray-500 dark:text-gray-400">Happy Customers</div>
+                        </div>
+                        <div class="bg-white dark:bg-background-dark p-4 rounded-xl shadow">
+                            <div class="text-3xl font-display font-bold text-primary">15+</div>
+                            <div class="text-sm text-gray-500 dark:text-gray-400">Menu Items</div>
+                        </div>
+                        <div class="bg-white dark:bg-background-dark p-4 rounded-xl shadow">
+                            <div class="text-3xl font-display font-bold text-primary">4.9</div>
+                            <div class="text-sm text-gray-500 dark:text-gray-400">Star Rating</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&h=400&fit=crop"
+                        alt="Chef cooking" class="rounded-2xl shadow-2xl w-full h-80 object-cover" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="py-16 bg-primary">
+        <div class="max-w-4xl mx-auto px-4 text-center text-white">
+            <span class="material-icons text-5xl mb-6 opacity-80">format_quote</span>
+            <h2 class="text-2xl md:text-4xl font-serif italic font-medium leading-relaxed mb-8">
+                "The most consistent cloud kitchen in the city. The packaging ensures the food arrives piping hot, just
+                like dining in."
+            </h2>
+            <div class="flex items-center justify-center gap-4">
+                <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center font-bold text-lg">JS
+                </div>
+                <div class="text-left">
+                    <div class="font-bold">John Smith</div>
+                    <div class="text-sm opacity-80">Regular Customer</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section class="py-20 bg-background-light dark:bg-background-dark" id="order">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-display font-bold text-gray-900 dark:text-white mb-4">Ready to Order?</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+                Place your order now via WhatsApp or give us a call. We'll prepare your food fresh and deliver it hot to
+                your doorstep!
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/15551234567?text=Hi! I'd like to place an order from Allwin's Kitchen"
+                    target="_blank"
+                    class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition flex items-center justify-center gap-3 shadow-lg">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Order via WhatsApp
+                </a>
+                <a href="tel:+15551234567"
+                    class="bg-gray-900 dark:bg-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 text-white px-8 py-4 rounded-xl font-bold text-lg transition flex items-center justify-center gap-3 shadow-lg">
+                    <span class="material-icons">phone</span>
+                    Call Us Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8" id="contact">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex flex-col mb-4">
+                        <span
+                            class="font-display font-bold text-2xl tracking-wide uppercase leading-none">Allwin's</span>
+                        <span class="font-serif italic text-xs tracking-widest text-gray-400">KITCHEN</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Bringing gourmet experiences to your dining table. Quality ingredients, hygienic preparation,
+                        and love in every bite.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a class="hover:text-primary transition" href="#">Home</a></li>
+                        <li><a class="hover:text-primary transition" href="#menu">Our Menu</a></li>
+                        <li><a class="hover:text-primary transition" href="#about">About Us</a></li>
+                        <li><a class="hover:text-primary transition" href="#order">Order Now</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Contact Us</h3>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li class="flex items-start gap-3">
+                            <span class="material-icons text-primary text-sm mt-1">location_on</span>
+                            <span>#123 Food Street,<br />2nd Floor, Flavor Town</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-icons text-primary text-sm">phone</span>
+                            <a href="tel:+15551234567" class="hover:text-primary transition">+1 (555) 123-4567</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-icons text-primary text-sm">email</span>
+                            <a href="mailto:hello@allwinskitchen.com"
+                                class="hover:text-primary transition">hello@allwinskitchen.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Opening Hours</h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li class="flex justify-between">
+                            <span>Mon - Fri</span>
+                            <span class="text-white">10:00 AM - 10:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Sat - Sun</span>
+                            <span class="text-white">11:00 AM - 11:00 PM</span>
+                        </li>
+                    </ul>
+                    <div class="flex gap-4 mt-6">
+                        <a class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition"
+                            href="#" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition"
+                            href="#" aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-green-500 transition"
+                            href="https://wa.me/15551234567" aria-label="WhatsApp">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>© 2025 Allwin's Kitchen. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a class="hover:text-white transition" href="#">Privacy Policy</a>
+                    <a class="hover:text-white transition" href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/15551234567?text=Hi! I'd like to place an order from Allwin's Kitchen" target="_blank"
+        class="whatsapp-float fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition transform hover:scale-110"
+        aria-label="Order via WhatsApp">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/50" id="cart-overlay"></div>
+        <div
+            class="absolute right-0 top-0 h-full w-full max-w-md bg-white dark:bg-background-dark shadow-2xl transform transition-transform duration-300">
+            <div class="flex flex-col h-full">
+                <div class="flex justify-between items-center p-6 border-b border-gray-200 dark:border-gray-800">
+                    <h3 class="text-xl font-bold">Your Order</h3>
+                    <button id="close-cart"
+                        class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition">
+                        <span class="material-icons">close</span>
+                    </button>
+                </div>
+                <div id="cart-items" class="flex-1 overflow-y-auto p-6">
+                    <p class="text-gray-500 dark:text-gray-400 text-center py-8">Your cart is empty</p>
+                </div>
+                <div class="border-t border-gray-200 dark:border-gray-800 p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="font-bold">Total:</span>
+                        <span id="cart-total" class="text-2xl font-display font-bold text-primary">$0.00</span>
+                    </div>
+                    <a id="checkout-whatsapp" href="#" target="_blank"
+                        class="block w-full bg-green-500 hover:bg-green-600 text-white py-4 rounded-xl font-bold text-center transition">
+                        Order via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Cart functionality
+        let cart = [];
+
+        function updateCart() {
+            const cartCount = document.getElementById('cart-count');
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            const checkoutBtn = document.getElementById('checkout-whatsapp');
+
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            if (totalItems > 0) {
+                cartCount.textContent = totalItems;
+                cartCount.classList.remove('hidden');
+            } else {
+                cartCount.classList.add('hidden');
+            }
+
+            cartTotal.textContent = '$' + totalPrice.toFixed(2);
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="text-gray-500 dark:text-gray-400 text-center py-8">Your cart is empty</p>';
+            } else {
+                cartItems.innerHTML = cart.map((item, index) => `
+                    <div class="flex justify-between items-center py-3 border-b border-gray-100 dark:border-gray-800">
+                        <div class="flex-1">
+                            <p class="font-medium">${item.name}</p>
+                            <p class="text-sm text-gray-500">$${item.price.toFixed(2)} x ${item.qty}</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="updateQty(${index}, -1)" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition">-</button>
+                            <span class="w-8 text-center font-bold">${item.qty}</span>
+                            <button onclick="updateQty(${index}, 1)" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition">+</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Update WhatsApp checkout link
+            if (cart.length > 0) {
+                const orderText = cart.map(item => `${item.qty}x ${item.name} ($${(item.price * item.qty).toFixed(2)})`).join('%0A');
+                checkoutBtn.href = `https://wa.me/15551234567?text=Hi! I'd like to order:%0A${orderText}%0A%0ATotal: $${totalPrice.toFixed(2)}`;
+            }
+        }
+
+        function updateQty(index, delta) {
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCart();
+        }
+
+        // Add to cart buttons
+        document.querySelectorAll('.add-to-cart').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const item = this.closest('.menu-item');
+                const name = item.dataset.name;
+                const price = parseFloat(item.dataset.price);
+
+                const existing = cart.find(i => i.name === name);
+                if (existing) {
+                    existing.qty++;
+                } else {
+                    cart.push({ name, price, qty: 1 });
+                }
+
+                updateCart();
+
+                // Visual feedback
+                this.innerHTML = '<span class="material-icons text-sm">check</span> Added!';
+                this.classList.add('bg-green-500', 'text-white');
+                setTimeout(() => {
+                    this.innerHTML = '<span class="material-icons text-sm">add_shopping_cart</span> Add to Order';
+                    this.classList.remove('bg-green-500', 'text-white');
+                }, 1500);
+            });
+        });
+
+        // Cart sidebar
+        document.getElementById('cart-btn').addEventListener('click', () => {
+            document.getElementById('cart-sidebar').classList.remove('hidden');
+        });
+
+        document.getElementById('close-cart').addEventListener('click', () => {
+            document.getElementById('cart-sidebar').classList.add('hidden');
+        });
+
+        document.getElementById('cart-overlay').addEventListener('click', () => {
+            document.getElementById('cart-sidebar').classList.add('hidden');
+        });
+
+        // Mobile menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Dark mode toggle
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        }
+
+        document.getElementById('theme-toggle').addEventListener('click', toggleDarkMode);
+        document.getElementById('theme-toggle-mobile').addEventListener('click', toggleDarkMode);
+
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'true' ||
+            (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+</body>
+
+</html>
