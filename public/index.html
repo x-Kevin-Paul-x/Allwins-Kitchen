@@ -1,866 +1,1226 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Allwin's Kitchen - Cloud Kitchen | Order Food Online</title>
+    <title>Allwin's Kitchen × The Curry | Taste of Madurai in Whitefield</title>
     <meta name="description"
-        content="Allwin's Kitchen - Experience authentic flavors crafted with soul. Fresh ingredients, masterful recipes, and blazing fast delivery from our cloud kitchen straight to your doorstep." />
+        content="Allwin's Kitchen in partnership with The Curry - Taste of Madurai. Experience authentic Bun Parotta, Mutton Chukka, and Jigarthanda in Whitefield, Bangalore. Fresh ingredients, no MSG." />
     <meta name="keywords"
-        content="cloud kitchen, food delivery, allwins kitchen, authentic food, fast delivery, order online" />
-    <meta name="author" content="Allwin's Kitchen" />
-    <meta property="og:title" content="Allwin's Kitchen - Cloud Kitchen" />
-    <meta property="og:description" content="Experience authentic flavors crafted with soul. Order now!" />
+        content="Allwins Kitchen, The Curry, Taste of Madurai, Whitefield food delivery, Bun Parotta Bangalore, Mutton Chukka Whitefield, Jigarthanda Bangalore, cloud kitchen Bangalore" />
+    <meta name="author" content="Allwin's Kitchen × The Curry" />
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Allwin's Kitchen × The Curry | Taste of Madurai" />
+    <meta property="og:description" content="Experience authentic Madurai street food crafted with soul in Whitefield, Bangalore. Order online!" />
     <meta property="og:type" content="website" />
-    <link rel="icon" type="image/jpeg"
-        href="https://raw.githubusercontent.com/x-Kevin-Paul-x/Allwins-Kitchen/main/public/Logo.jpeg" />
+    <meta property="og:image" content="Logo_Without_Bg.png" />
+    
+    <!-- Favicon & Canonical -->
+    <link rel="icon" type="image/png" href="Logo_Without_Bg.png" />
     <link rel="canonical" href="https://allwinskitchen.com" />
+    
+    <!-- Tailwind CSS with Typography & Forms plugins -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
-        rel="stylesheet" />
+    
+    <!-- Premium Fonts: Plus Jakarta Sans for headings & Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+    
+    <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    
+    <!-- Custom Tailwind Configurations -->
     <script>
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        primary: "#D97706",
-                        "background-light": "#FFFFFF",
-                        "background-dark": "#18181b",
-                        "surface-light": "#F3F4F6",
-                        "surface-dark": "#27272a",
+                        primary: {
+                            50: '#fefbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                            900: '#78350f',
+                            DEFAULT: '#d97706',
+                        },
+                        spice: {
+                            50: '#fef2f2',
+                            100: '#fee2e2',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                            DEFAULT: '#b91c1c',
+                        },
+
                     },
                     fontFamily: {
-                        display: ["Oswald", "sans-serif"],
+                        display: ["Plus Jakarta Sans", "sans-serif"],
                         body: ["Inter", "sans-serif"],
-                        serif: ["Playfair Display", "serif"],
                     },
                 },
             },
         };
     </script>
+    
+    <!-- Custom CSS Styles -->
     <style>
-        html {
-            scroll-behavior: smooth;
+        .glass-header {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+        }
+        .dark .glass-header {
+            background-color: rgba(9, 9, 11, 0.6);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-gradient {
+            background: radial-gradient(circle at 10% 20%, rgba(217, 119, 6, 0.08) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(185, 28, 28, 0.06) 0%, transparent 45%);
+        }
+        
+        .dark .hero-gradient {
+            background: radial-gradient(circle at 10% 20%, rgba(217, 119, 6, 0.15) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(185, 28, 28, 0.1) 0%, transparent 45%);
         }
 
-        .retro-shadow {
-            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+        .food-grid-pattern {
+            background-size: 24px 24px;
+            background-image: radial-gradient(circle, rgba(0,0,0,0.02) 1px, transparent 1px);
+        }
+        .dark .food-grid-pattern {
+            background-image: radial-gradient(circle, rgba(255,255,255,0.015) 1px, transparent 1px);
         }
 
-        .hero-pattern {
-            background-color: #ffffff;
-            background-image: radial-gradient(#e5e7eb 0.5px, transparent 0.5px), radial-gradient(#e5e7eb 0.5px, #ffffff 0.5px);
-            background-size: 20px 20px;
-            background-position: 0 0, 10px 10px;
+        /* Custom Scrollbar for Drawer & Menu */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
         }
-
-        .dark .hero-pattern {
-            background-color: #18181b;
-            background-image: radial-gradient(#27272a 0.5px, transparent 0.5px), radial-gradient(#27272a 0.5px, #18181b 0.5px);
+        ::-webkit-scrollbar-track {
+            background: transparent;
         }
-
+        ::-webkit-scrollbar-thumb {
+            background: #d97706;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b45309;
+        }
+        
         .whatsapp-float {
             animation: pulse-glow 2s infinite;
         }
-
+        
         @keyframes pulse-glow {
-
-            0%,
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
             }
-
             50% {
-                box-shadow: 0 0 20px 10px rgba(37, 211, 102, 0.2);
+                box-shadow: 0 0 20px 8px rgba(34, 197, 94, 0.2);
             }
         }
 
-        .cart-badge {
-            animation: bounce-subtle 1s ease-in-out;
+        .cart-bounce {
+            animation: cart-pop 0.3s ease-out;
         }
 
-        @keyframes bounce-subtle {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.2);
-            }
+        @keyframes cart-pop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
         }
 
-        .fade-in {
-            animation: fadeIn 0.5s ease-out;
+        /* Testimonial slider styles */
+        .testimonial-slide {
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
         }
 
-        @keyframes fadeIn {
+        /* Smooth category filtering entry animation */
+        @keyframes card-fade-in {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(12px) scale(0.98);
             }
-
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
             }
         }
-
-        section[id]:not(#why) {
-            scroll-margin-top: var(--scroll-offset, 120px);
+        .menu-card-animate {
+            animation: card-fade-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        @media (max-width: 768px) {
-            section[id]:not(#why) {
-                scroll-margin-top: var(--scroll-offset-mobile, 90px);
-            }
+        /* Scroll-triggered reveal animation */
+        .reveal-element {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
-        /* Why section uses JS for precise scroll positioning */
-        #why {
-            scroll-margin-top: 0;
-        }
-
-        /* Order section fills remaining viewport */
-        #order {
-            min-height: calc(100vh - 80px - 350px);
-            /* viewport - navbar - approximate footer height */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        /* Mobile-specific order section */
-        @media (max-width: 768px) {
-            #order {
-                min-height: calc(100vh - 70px - 200px);
-            }
-        }
-
-        /* Gradient border cards - Light mode */
-        .gradient-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .gradient-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(217, 119, 6, 0.6), transparent);
-        }
-
-        .gradient-card:hover {
-            border-color: rgba(217, 119, 6, 0.3);
-            box-shadow: 0 8px 30px rgba(217, 119, 6, 0.15);
-        }
-
-        /* Gradient border cards - Dark mode */
-        .dark .gradient-card {
-            background: linear-gradient(135deg, #1f1f23 0%, #18181b 100%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: none;
-        }
-
-        .dark .gradient-card:hover {
-            border-color: rgba(217, 119, 6, 0.3);
-            box-shadow: 0 0 30px rgba(217, 119, 6, 0.1);
-        }
-
-        /* Mobile-specific optimizations */
-        @media (max-width: 640px) {
-
-            /* Smaller navbar on mobile */
-            .mobile-nav-height {
-                height: 64px !important;
-            }
-
-            /* Better touch targets */
-            .touch-target {
-                min-height: 44px;
-                min-width: 44px;
-            }
-
-            /* Improved mobile hero */
-            .mobile-hero-title {
-                font-size: 2.75rem !important;
-            }
-
-            /* Mobile stats - smaller text */
-            .mobile-stat-number {
-                font-size: 1.75rem !important;
-            }
-
-            /* Mobile feature cards - better spacing */
-            .gradient-card {
-                padding: 1.25rem !important;
-            }
-
-            /* Prevent horizontal overflow */
-            body {
-                overflow-x: hidden;
-            }
-
-            /* WhatsApp button smaller on mobile */
-            .whatsapp-float {
-                padding: 0.75rem;
-                bottom: 1rem;
-                right: 1rem;
-            }
-
-            .whatsapp-float svg {
-                width: 1.5rem;
-                height: 1.5rem;
-            }
-        }
-
-        /* Safe area for notched phones */
-        @supports (padding: max(0px)) {
-            body {
-                padding-left: max(0px, env(safe-area-inset-left));
-                padding-right: max(0px, env(safe-area-inset-right));
-            }
-
-            .whatsapp-float {
-                bottom: max(1rem, env(safe-area-inset-bottom));
-                right: max(1rem, env(safe-area-inset-right));
-            }
+        .reveal-element.revealed {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
+    
+    <!-- Local Restaurant Schema (SEO JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FoodEstablishment",
+      "name": "Allwin's Kitchen × The Curry",
+      "image": [
+        "Logo_Without_Bg.png",
+        "Shami_Kabab.png"
+      ],
+      "description": "Authentic Madurai street foods and traditional curries served in Whitefield, Bangalore. An exclusive collaboration with The Curry, Taste of Madurai.",
+      "telephone": "+919880378412",
+      "url": "https://allwinskitchen.com",
+      "priceRange": "₹₹",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2nd Floor, 44 Leelavathi Achar Complex, Immadihalli Main Road, Whitefield",
+        "addressLocality": "Bengaluru",
+        "addressRegion": "Karnataka",
+        "postalCode": "560066",
+        "addressCountry": "IN"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "10:00",
+          "closes": "22:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday", "Sunday"],
+          "opens": "11:00",
+          "closes": "23:00"
+        }
+      ],
+      "servesCuisine": "South Indian, Madurai Style, Parotta, Biryani, Curries",
+      "menu": "https://allwinskitchen.com/menu/Curry%20Menu%20June%202026.pdf",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Food Delivery Menu",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MenuItem",
+              "name": "Bun Porotta",
+              "description": "Flaky, soft, layered Madurai style parotta.",
+              "offers": {
+                "@type": "Offer",
+                "price": "40.00",
+                "priceCurrency": "INR"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MenuItem",
+              "name": "Mutton Chukka",
+              "description": "Slow-cooked mutton with roasted spices and curry leaves.",
+              "offers": {
+                "@type": "Offer",
+                "price": "340.00",
+                "priceCurrency": "INR"
+              }
+            }
+          }
+        ]
+      }
+    }
+    </script>
 </head>
 
-<body
-    class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 font-body transition-colors duration-300">
+<body class="bg-amber-50/20 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-body transition-colors duration-300 antialiased selection:bg-primary selection:text-white">
 
-    <!-- Navigation -->
-    <nav
-        class="fixed w-full z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+    <!-- Navigation Header -->
+    <nav class="fixed top-0 left-0 w-full z-40 border-b border-zinc-200/50 dark:border-zinc-800/50 glass-header transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16 sm:h-20">
-                <a href="#" class="flex-shrink-0 flex items-center gap-3">
-                    <img src="https://raw.githubusercontent.com/x-Kevin-Paul-x/Allwins-Kitchen/main/public/Logo_Without_Bg.png"
-                        alt="Allwin's Kitchen Logo" class="h-10 w-10 sm:h-12 sm:w-12 object-contain" />
+                
+                <!-- Logo & Brand -->
+                <a href="#" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-primary rounded-lg p-1">
+                    <img src="Logo_Without_Bg.png" alt="Allwin's Kitchen Logo" class="h-10 w-10 sm:h-12 sm:w-12 object-contain group-hover:scale-105 transition-transform" />
                     <div class="flex flex-col">
-                        <span
-                            class="font-display font-bold text-xl sm:text-2xl tracking-wide uppercase leading-none">Allwin's</span>
-                        <span
-                            class="font-serif italic text-xs tracking-widest text-gray-500 dark:text-gray-400">KITCHEN</span>
+                        <span class="font-display font-extrabold text-lg sm:text-xl tracking-tight leading-none text-zinc-900 dark:text-white">ALLWIN'S KITCHEN</span>
+                        <span class="text-[10px] sm:text-[11px] font-display font-medium tracking-wider text-primary-600 dark:text-primary-400 mt-0.5 flex items-center gap-1 uppercase">
+                            <span class="inline-block w-1.5 h-1.5 rounded-full bg-spice"></span>
+                            × The Curry Madurai
+                        </span>
                     </div>
                 </a>
+
+                <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary transition font-medium"
-                        href="#why">Why Us</a>
-                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary transition font-medium"
-                        href="#menu">Menu</a>
-                    <a class="text-gray-700 dark:text-gray-300 hover:text-primary transition font-medium"
-                        href="#contact">Contact</a>
-                    <button id="theme-toggle"
-                        class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition">
-                        <span class="material-icons dark:hidden">dark_mode</span>
-                        <span class="material-icons hidden dark:inline">light_mode</span>
+                    <a class="relative py-2 text-zinc-600 dark:text-zinc-300 hover:text-primary transition font-semibold text-sm group" href="#collaboration">
+                        Collaboration
+                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a class="relative py-2 text-zinc-600 dark:text-zinc-300 hover:text-primary transition font-semibold text-sm group" href="#why">
+                        Why Us
+                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a class="relative py-2 text-zinc-600 dark:text-zinc-300 hover:text-primary transition font-semibold text-sm group" href="#menu">
+                        Menu
+                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a class="relative py-2 text-zinc-600 dark:text-zinc-300 hover:text-primary transition font-semibold text-sm group" href="#contact">
+                        Contact
+                        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    
+                    <!-- Delivery Platforms (Swiggy & Zomato) -->
+                    <div class="flex items-center gap-2 border-r border-zinc-200 dark:border-zinc-800 pr-4 mr-2">
+                        <!-- Swiggy Badge -->
+                        <a href="https://www.swiggy.com/city/bangalore/the-curry-whitefield-rest1402100" target="_blank" class="w-9 h-9 rounded-xl bg-[#fc8019]/10 hover:bg-[#fc8019] text-[#fc8019] hover:text-white border border-[#fc8019]/20 hover:border-[#fc8019] flex items-center justify-center transition duration-200 hover:scale-105 shadow-sm" title="Order on Swiggy">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                                <path d="M12.034 24c-.376-.411-2.075-2.584-3.95-5.513-.547-.916-.901-1.63-.833-1.814.178-.48 3.355-.743 4.333-.308.298.132.29.307.29.409 0 .44-.022 1.619-.022 1.619a.441.441 0 1 0 .883-.002l-.005-2.939c0-.255-.278-.319-.331-.329-.511-.002-1.548-.006-2.661-.006-2.457 0-3.006.101-3.423-.172-.904-.591-2.383-4.577-2.417-6.819C3.849 4.964 5.723 2.225 8.362.868A8.13 8.13 0 0 1 12.026 0c4.177 0 7.617 3.153 8.075 7.209l.001.011c.084.981-5.321 1.189-6.39.904-.164-.044-.206-.212-.206-.284L13.5 4.996a.442.442 0 0 0-.884.002l.009 3.866a.33.33 0 0 0 .268.32l3.354-.001c1.79 0 2.542.207 3.042.588.333.254.461.739.349 1.37C18.633 16.755 12.273 23.71 12.034 24z"/>
+                            </svg>
+                        </a>
+                        <!-- Zomato Badge (Rectangular, 3x Larger Cropped Logo) -->
+                        <a href="https://www.zomato.com/bangalore/the-curry-taste-of-madurai-channasandra-bangalore/order" target="_blank" class="px-3 h-9 rounded-xl bg-[#cb202d]/10 hover:bg-[#cb202d] text-[#cb202d] hover:text-white border border-[#cb202d]/20 hover:border-[#cb202d] flex items-center justify-center transition duration-200 hover:scale-105 shadow-sm" title="Order on Zomato">
+                            <svg class="w-[50px] h-[11px] fill-current" viewBox="0 9.4 24 5.2">
+                                <path d="M19.615 9.45l-1.258.473-.167.71-.446.021-.115.978h.408l-.211 1.51c-.131.939.036 1.381.865 1.381.488 0 .91-.175 1.135-.297l.145-.9c-.167.083-.436.19-.618.19-.247 0-.276-.13-.225-.488l.189-1.396h.843c.03-.206.131-.877.16-1h-.865zm-3.779 1.002c-.115.002-.236.01-.361.026a3.592 3.592 0 0 0-1.347.432l.26.789c.269-.15.615-.28.978-.326.538-.066.757.1.79.375.014.109.004.199-.005.289l-.014.056a3.46 3.46 0 0 0-1.097-.036c-.518.063-.943.273-1.204.6a1.324 1.324 0 0 0-.225 1.034c.127.583.553.84 1.199.76.45-.055.812-.27 1.076-.63a2.665 2.665 0 0 1-.03.304 1.74 1.74 0 0 1-.072.29l1.244.001a3.657 3.657 0 0 1-.001-.365c.036-.459.118-1.143.247-2.051a2.397 2.397 0 0 0-.002-.59c-.08-.644-.628-.969-1.436-.958zm6.536.063c-1.194 0-2.107 1.067-2.107 2.342 0 .959.552 1.693 1.628 1.693 1.2 0 2.107-1.067 2.107-2.35 0-.95-.538-1.685-1.628-1.685zm-11.777.041c-.538 0-1.12.465-1.52 1.236.102-.504.08-1.076.051-1.198a8.964 8.964 0 0 1-1.287.122 6.9 6.9 0 0 1-.073 1.243l-.167 1.145c-.066.45-.138.969-.211 1.297h1.353c.007-.199.058-.511.094-.786l.116-.786c.095-.511.502-1.114.815-1.114.182 0 .175.176.124.504l-.131.885c-.066.45-.138.969-.211 1.297h1.367c.008-.199.051-.512.088-.786l.116-.786c.094-.512.502-1.114.814-1.114.182 0 .175.168.146.396l-.327 2.29H13l.438-2.609c.095-.649.044-1.236-.676-1.236-.523 0-1.09.443-1.49 1.182.087-.61.036-1.182-.677-1.182zm-4.88.008c-1.177 0-2.08 1.053-2.08 2.312 0 .946.546 1.67 1.608 1.67 1.185 0 2.08-1.052 2.08-2.319 0-.938-.531-1.663-1.607-1.663zm-5.126.091c-.05.39-.102.778-.175 1.13.328-.008.619-.016 1.411-.016l-1.81 1.96-.015.703c.444-.03.997-.039 1.63-.039.566 0 1.134.008 1.497.039.065-.458.13-.763.21-1.137-.275.015-.755.023-1.512.023l1.81-1.969.023-.694c-.437.023-.83.03-1.52.03-.749 0-.975-.007-1.549-.03zm4.988.927c.255 0 .408.228.408.701 0 .687-.276 1.251-.626 1.251-.261 0-.414-.236-.414-.702 0-.694.283-1.25.632-1.25zm16.629 0c.254 0 .407.228.407.701 0 .687-.276 1.251-.625 1.251-.262 0-.415-.236-.415-.702 0-.694.284-1.25.633-1.25zM15.51 12.64c.206-.003.403.024.55.058l-.013.118c-.075.44-.39.881-.848.938-.31.037-.578-.148-.608-.39a.538.538 0 0 1 .114-.41c.117-.159.336-.268.599-.3.069-.009.138-.013.206-.014Z"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Dark/Light Toggle -->
+                    <button id="theme-toggle" aria-label="Toggle Dark Mode" class="p-2 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-full transition focus:outline-none focus:ring-2 focus:ring-primary">
+                        <span class="material-icons dark:hidden text-2xl">dark_mode</span>
+                        <span class="material-icons hidden dark:inline text-2xl">light_mode</span>
                     </button>
-                    <button id="cart-btn"
-                        class="relative p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition">
-                        <span class="material-icons">shopping_cart</span>
-                        <span id="cart-count"
-                            class="hidden absolute -top-1 -right-1 bg-primary text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold cart-badge">0</span>
-                    </button>
-                    <a href="#order"
-                        class="bg-primary hover:bg-yellow-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5">
-                        Order Now
+                    
+                    <a href="https://wa.me/919880378412?text=Hi!%20I%27d%20like%20to%20place%20an%20order%20or%20inquire%20about%20catering%20from%20Allwin%27s%20Kitchen%20%C3%97%20The%20Curry." target="_blank" class="bg-[#25D366] hover:bg-[#20ba5a] active:bg-[#1da851] text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 flex items-center gap-1.5">
+                        <span class="material-icons text-sm">chat</span> Chat on WhatsApp
                     </a>
                 </div>
+
+                <!-- Mobile Header Right -->
                 <div class="md:hidden flex items-center gap-2">
-                    <button id="theme-toggle-mobile"
-                        class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                    <!-- Swiggy Badge Mobile -->
+                    <a href="https://www.swiggy.com/city/bangalore/the-curry-whitefield-rest1402100" target="_blank" class="w-8 h-8 rounded-lg bg-[#fc8019]/10 text-[#fc8019] flex items-center justify-center border border-[#fc8019]/25 shadow-sm" title="Order on Swiggy">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                            <path d="M12.034 24c-.376-.411-2.075-2.584-3.95-5.513-.547-.916-.901-1.63-.833-1.814.178-.48 3.355-.743 4.333-.308.298.132.29.307.29.409 0 .44-.022 1.619-.022 1.619a.441.441 0 1 0 .883-.002l-.005-2.939c0-.255-.278-.319-.331-.329-.511-.002-1.548-.006-2.661-.006-2.457 0-3.006.101-3.423-.172-.904-.591-2.383-4.577-2.417-6.819C3.849 4.964 5.723 2.225 8.362.868A8.13 8.13 0 0 1 12.026 0c4.177 0 7.617 3.153 8.075 7.209l.001.011c.084.981-5.321 1.189-6.39.904-.164-.044-.206-.212-.206-.284L13.5 4.996a.442.442 0 0 0-.884.002l.009 3.866a.33.33 0 0 0 .268.32l3.354-.001c1.79 0 2.542.207 3.042.588.333.254.461.739.349 1.37C18.633 16.755 12.273 23.71 12.034 24z"/>
+                        </svg>
+                    </a>
+                    <!-- Zomato Badge Mobile (Rectangular Cropped wordmark) -->
+                    <a href="https://www.zomato.com/bangalore/the-curry-taste-of-madurai-channasandra-bangalore/order" target="_blank" class="w-14 h-8 rounded-lg bg-[#cb202d]/10 text-[#cb202d] flex items-center justify-center border border-[#cb202d]/25 shadow-sm" title="Order on Zomato">
+                        <svg class="w-10 h-2.5 fill-current" viewBox="0 9.4 24 5.2">
+                            <path d="M19.615 9.45l-1.258.473-.167.71-.446.021-.115.978h.408l-.211 1.51c-.131.939.036 1.381.865 1.381.488 0 .91-.175 1.135-.297l.145-.9c-.167.083-.436.19-.618.19-.247 0-.276-.13-.225-.488l.189-1.396h.843c.03-.206.131-.877.16-1h-.865zm-3.779 1.002c-.115.002-.236.01-.361.026a3.592 3.592 0 0 0-1.347.432l.26.789c.269-.15.615-.28.978-.326.538-.066.757.1.79.375.014.109.004.199-.005.289l-.014.056a3.46 3.46 0 0 0-1.097-.036c-.518.063-.943.273-1.204.6a1.324 1.324 0 0 0-.225 1.034c.127.583.553.84 1.199.76.45-.055.812-.27 1.076-.63a2.665 2.665 0 0 1-.03.304 1.74 1.74 0 0 1-.072.29l1.244.001a3.657 3.657 0 0 1-.001-.365c.036-.459.118-1.143.247-2.051a2.397 2.397 0 0 0-.002-.59c-.08-.644-.628-.969-1.436-.958zm6.536.063c-1.194 0-2.107 1.067-2.107 2.342 0 .959.552 1.693 1.628 1.693 1.2 0 2.107-1.067 2.107-2.35 0-.95-.538-1.685-1.628-1.685zm-11.777.041c-.538 0-1.12.465-1.52 1.236.102-.504.08-1.076.051-1.198a8.964 8.964 0 0 1-1.287.122 6.9 6.9 0 0 1-.073 1.243l-.167 1.145c-.066.45-.138.969-.211 1.297h1.353c.007-.199.058-.511.094-.786l.116-.786c.095-.511.502-1.114.815-1.114.182 0 .175.176.124.504l-.131.885c-.066.45-.138.969-.211 1.297h1.367c.008-.199.051-.512.088-.786l.116-.786c.094-.512.502-1.114.814-1.114.182 0 .175.168.146.396l-.327 2.29H13l.438-2.609c.095-.649.044-1.236-.676-1.236-.523 0-1.09.443-1.49 1.182.087-.61.036-1.182-.677-1.182zm-4.88.008c-1.177 0-2.08 1.053-2.08 2.312 0 .946.546 1.67 1.608 1.67 1.185 0 2.08-1.052 2.08-2.319 0-.938-.531-1.663-1.607-1.663zm-5.126.091c-.05.39-.102.778-.175 1.13.328-.008.619-.016 1.411-.016l-1.81 1.96-.015.703c.444-.03.997-.039 1.63-.039.566 0 1.134.008 1.497.039.065-.458.13-.763.21-1.137-.275.015-.755.023-1.512.023l1.81-1.969.023-.694c-.437.023-.83.03-1.52.03-.749 0-.975-.007-1.549-.03zm4.988.927c.255 0 .408.228.408.701 0 .687-.276 1.251-.626 1.251-.261 0-.414-.236-.414-.702 0-.694.283-1.25.632-1.25zm16.629 0c.254 0 .407.228.407.701 0 .687-.276 1.251-.625 1.251-.262 0-.415-.236-.415-.702 0-.694.284-1.25.633-1.25zM15.51 12.64c.206-.003.403.024.55.058l-.013.118c-.075.44-.39.881-.848.938-.31.037-.578-.148-.608-.39a.538.538 0 0 1 .114-.41c.117-.159.336-.268.599-.3.069-.009.138-.013.206-.014Z"/>
+                        </svg>
+                    </a>
+                    <button id="theme-toggle-mobile" aria-label="Toggle Dark Mode" class="p-2 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-full transition focus:outline-none">
                         <span class="material-icons dark:hidden">dark_mode</span>
                         <span class="material-icons hidden dark:inline">light_mode</span>
                     </button>
-                    <button id="mobile-menu-btn" class="text-gray-700 dark:text-gray-300 hover:text-primary">
-                        <span class="material-icons text-3xl">menu</span>
+                    <button id="mobile-menu-btn" aria-label="Toggle Navigation Menu" class="p-2 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900 rounded-full transition focus:outline-none">
+                        <span class="material-icons text-2xl" id="menu-icon">menu</span>
                     </button>
                 </div>
+
             </div>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu"
-            class="md:hidden hidden bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-800">
-            <div class="px-4 py-4 space-y-3">
-                <a class="block text-gray-700 dark:text-gray-300 hover:text-primary transition font-medium py-2"
-                    href="#why">Why Us</a>
-                <a class="block text-gray-700 dark:text-gray-300 hover:text-primary transition font-medium py-2"
-                    href="#menu">Menu</a>
-                <a class="block text-gray-700 dark:text-gray-300 hover:text-primary transition font-medium py-2"
-                    href="#contact">Contact</a>
-                <a href="#order"
-                    class="block w-full bg-primary hover:bg-yellow-600 text-white px-6 py-2.5 rounded-full font-bold text-center shadow-lg">
-                    Order Now
-                </a>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 dark:bg-zinc-950/95 backdrop-blur-md border-t border-zinc-200/50 dark:border-zinc-800/50 animate-fade-in shadow-xl">
+            <div class="px-4 py-4 space-y-2">
+                <a class="block text-zinc-700 dark:text-zinc-300 hover:text-primary font-semibold py-2 px-3 hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-lg transition" href="#collaboration">Collaboration</a>
+                <a class="block text-zinc-700 dark:text-zinc-300 hover:text-primary font-semibold py-2 px-3 hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-lg transition" href="#why">Why Us</a>
+                <a class="block text-zinc-700 dark:text-zinc-300 hover:text-primary font-semibold py-2 px-3 hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-lg transition" href="#menu">Menu</a>
+                <a class="block text-zinc-700 dark:text-zinc-300 hover:text-primary font-semibold py-2 px-3 hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-lg transition" href="#contact">Contact</a>
+                <div class="pt-4 border-t border-zinc-100 dark:border-zinc-900">
+                    <a href="https://wa.me/919880378412?text=Hi!%20I%27d%20like%20to%20place%20an%20order%20or%20inquire%20about%20catering%20from%20Allwin%27s%20Kitchen%20%C3%97%20The%20Curry." target="_blank" class="block w-full bg-[#25D366] hover:bg-[#20ba5a] text-white py-3 rounded-xl font-bold text-center shadow-md flex items-center justify-center gap-1.5">
+                        <span class="material-icons text-sm">chat</span> Chat on WhatsApp
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative pt-24 pb-16 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-28 overflow-hidden hero-pattern">
+    <header class="relative pt-24 pb-16 sm:pt-32 sm:pb-24 lg:pt-40 lg:pb-32 overflow-hidden hero-gradient food-grid-pattern">
+        <!-- Floating shapes -->
+        <div class="absolute top-1/4 left-10 w-24 h-24 bg-primary-300/10 dark:bg-primary-500/5 rounded-full blur-xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-20 w-36 h-36 bg-spice-500/10 dark:bg-spice-500/5 rounded-full blur-2xl pointer-events-none"></div>
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6 text-center lg:text-left fade-in">
-                    <div
-                        class="inline-block px-4 py-1.5 rounded-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm mb-2">
-                        <div class="flex items-center gap-2">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                
+                <!-- Hero Left: Content -->
+                <div class="space-y-6 text-center lg:text-left">
+                    <div class="inline-block px-4 py-1.5 rounded-full border border-primary-200/60 dark:border-primary-900/30 bg-primary-100/40 dark:bg-primary-950/20 backdrop-blur-sm shadow-sm">
+                        <div class="flex items-center gap-2 justify-center lg:justify-start">
                             <span class="relative flex h-2 w-2">
-                                <span
-                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
                                 <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                             </span>
-                            <span
-                                class="text-xs font-bold tracking-wider uppercase text-gray-600 dark:text-gray-300">Now
-                                Open • Accepting Orders</span>
+                            <span class="text-xs font-bold tracking-wider uppercase text-primary-800 dark:text-primary-300">
+                                Fresh & Hot • Serving Whitefield
+                            </span>
                         </div>
                     </div>
-                    <h1 class="font-display font-bold text-gray-900 dark:text-white leading-none retro-shadow">
-                        <span class="block text-4xl sm:text-6xl lg:text-8xl tracking-tight mb-1">ALLWIN'S</span>
-                        <span
-                            class="block text-4xl sm:text-6xl lg:text-8xl tracking-tight text-gray-800 dark:text-gray-200">KITCHEN</span>
+                    
+                    <h1 class="font-display font-extrabold tracking-tight text-zinc-900 dark:text-white leading-tight">
+                        <span class="block text-4xl sm:text-5xl lg:text-7xl">ALLWIN'S</span>
+                        <span class="block text-4xl sm:text-5xl lg:text-7xl text-primary bg-gradient-to-r from-primary to-spice-600 bg-clip-text text-transparent">KITCHEN</span>
                     </h1>
-                    <h2 class="text-xl sm:text-2xl lg:text-3xl font-serif italic text-primary font-medium mt-2">
-                        Authentic Flavors, Crafted With Soul.
+                    
+                    <h2 class="text-xl sm:text-2xl font-display font-bold text-zinc-700 dark:text-zinc-300 mt-2">
+                        Authentic Flavors, Crafted with Soul.
+                        <span class="block text-base sm:text-lg font-medium text-spice-600 dark:text-spice-400 mt-1">
+                            In Culinary Collaboration with The Curry — Taste of Madurai
+                        </span>
                     </h2>
-                    <p
-                        class="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-lg mx-auto lg:mx-0 leading-relaxed mt-4">
-                        Experience the taste of home-style cooking elevated for the modern palate. From our cloud
-                        kitchen straight to your doorstep.
+                    
+                    <p class="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                        Experience the taste of iconic Madurai street food and rich, spice-laden curries. Sourced flour directly from Madurai, prepared in pure cow ghee, and absolutely free of MSG or artificial colorings.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-6">
-                        <a href="#order"
-                            class="bg-primary text-white px-8 sm:px-10 py-3 sm:py-4 rounded-xl font-bold text-lg sm:text-xl hover:bg-yellow-600 transition flex items-center justify-center gap-2 shadow-xl shadow-primary/30 transform hover:-translate-y-1">
-                            Order Now
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                        <a href="#menu" class="bg-primary hover:bg-primary-600 active:bg-primary-700 text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg transition duration-200 flex items-center justify-center gap-2 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                            Explore Menu
                             <span class="material-icons text-xl">arrow_forward</span>
                         </a>
-                        <a href="#menu"
-                            class="bg-transparent border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition text-center">
-                            View Menu
+                        <a href="/menu/Curry%20Menu%20June%202026.pdf" target="_blank" class="border border-zinc-300 dark:border-zinc-700 text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900 px-6 py-4 rounded-xl font-bold text-base transition flex items-center justify-center gap-2">
+                            <span class="material-icons">picture_as_pdf</span>
+                            View PDF Menu
                         </a>
                     </div>
-                    <div
-                        class="pt-6 sm:pt-8 flex items-center justify-center lg:justify-start gap-4 sm:gap-6 text-xs sm:text-sm text-gray-500 dark:text-gray-400 font-medium flex-wrap">
+                    
+                    <!-- Stats Badges -->
+                    <div class="pt-6 border-t border-zinc-200/50 dark:border-zinc-800/50 flex items-center justify-center lg:justify-start gap-6 text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 font-semibold flex-wrap">
                         <div class="flex items-center gap-1.5">
-                            <span class="material-icons text-primary text-lg">star</span>
-                            <span class="text-gray-700 dark:text-gray-300 font-bold">3.9/5 Rating</span>
+                            <span class="material-icons text-primary">star</span>
+                            <span class="text-zinc-700 dark:text-zinc-300">4.8/5 Rating</span>
                         </div>
                         <div class="flex items-center gap-1.5">
-                            <span class="material-icons text-primary text-lg">timer</span>
-                            <span class="text-gray-700 dark:text-gray-300 font-bold">30 Min Delivery</span>
+                            <span class="material-icons text-primary">clean_hands</span>
+                            <span class="text-zinc-700 dark:text-zinc-300">No Additives/MSG</span>
                         </div>
                         <div class="flex items-center gap-1.5">
-                            <span class="material-icons text-primary text-lg">local_shipping</span>
-                            <span class="text-gray-700 dark:text-gray-300 font-bold">Free Delivery</span>
+                            <span class="material-icons text-primary">local_shipping</span>
+                            <span class="text-zinc-700 dark:text-zinc-300">Hot Doorstep Delivery</span>
                         </div>
                     </div>
                 </div>
-                <div class="relative group mt-8 lg:mt-0">
-                    <div
-                        class="absolute -inset-4 bg-primary/20 rounded-full blur-2xl group-hover:bg-primary/30 transition duration-500">
+                
+                <!-- Hero Right: Image -->
+                <div class="relative group mt-8 lg:mt-0 flex justify-center">
+                    <div class="absolute -inset-4 bg-gradient-to-tr from-primary/30 to-spice-500/20 rounded-full blur-2xl group-hover:bg-primary/30 transition duration-500 max-w-lg w-full aspect-square"></div>
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-zinc-800/80 transform rotate-2 hover:rotate-0 transition duration-500 max-w-md w-full">
+                        <img alt="Traditional Madurai Mutton Chukka" class="w-full object-cover h-[350px] sm:h-[450px]" src="mutton_chukka.png" />
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-zinc-950/80 via-zinc-950/40 to-transparent p-6 text-white">
+                            <p class="font-display font-extrabold text-xl sm:text-2xl">Traditional Mutton Chukka</p>
+                            <p class="text-sm text-zinc-200 mt-1 font-medium">Authentic spice-laden slow-cooked delicacy</p>
+                        </div>
                     </div>
-                    <img alt="Delicious Shami Kabab"
-                        class="relative rounded-2xl shadow-2xl transform rotate-2 hover:rotate-0 transition duration-500 w-full object-cover h-[500px]"
-                        src="https://raw.githubusercontent.com/x-Kevin-Paul-x/Allwins-Kitchen/main/public/Shami_Kabab.png" />
-                    <div class="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 bg-white dark:bg-surface-dark p-3 sm:p-4 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 animate-bounce"
-                        style="animation-duration: 3s;">
-                        <div class="flex items-center gap-3">
-                            <div class="bg-green-100 dark:bg-green-900/30 p-2 rounded-full">
-                                <span class="material-icons text-green-600 dark:text-green-400">eco</span>
-                            </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Collaboration Section -->
+    <section id="collaboration" class="py-16 sm:py-24 bg-white dark:bg-zinc-950 border-y border-zinc-200/50 dark:border-zinc-800/50 reveal-element">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left: Story -->
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="inline-block px-4 py-1 bg-primary-100/50 dark:bg-primary-950/30 text-primary-700 dark:text-primary-300 font-extrabold text-xs tracking-wider rounded-full uppercase">
+                        The Culinary Partnership
+                    </span>
+                    <h3 class="text-3xl sm:text-4xl font-display font-extrabold text-zinc-900 dark:text-white">
+                        Allwin's Kitchen × The Curry
+                    </h3>
+                    
+                    <div class="h-1 w-16 bg-primary rounded-full"></div>
+                    
+                    <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed text-base sm:text-lg">
+                        Madurai, the historic culinary heart of southern India, is famous for its vibrant street food culture. To bring these authentic, legendary recipes to Whitefield, **Allwin's Kitchen** has collaborated with **The Curry - Taste of Madurai** (Kothanur).
+                    </p>
+                    
+                    <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed text-base">
+                        This collaboration brings traditional spices, slow-cooked meat preparations, and the famous bun parotta to your plate. Our commitment to quality means we import the unique parotta flour directly from Madurai, use only premium cold-pressed groundnut and coconut oils, and prepare dishes in pure cow ghee. We stand firm against artificial enhancers: **no MSG, no thickeners, and no artificial colors**.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 pt-4">
+                        <div class="flex gap-3">
+                            <span class="material-icons text-spice text-2xl">verified</span>
                             <div>
-                                <p class="text-xs text-gray-500 dark:text-gray-400 font-medium">Daily Fresh</p>
-                                <p class="font-bold text-gray-900 dark:text-white">Ingredients</p>
+                                <h4 class="font-bold text-zinc-800 dark:text-zinc-200 text-sm">Madurai-Sourced Flour</h4>
+                                <p class="text-xs text-zinc-500 mt-0.5">Imported directly to give that unique stretch and softness to our parottas.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <span class="material-icons text-spice text-2xl">clean_hands</span>
+                            <div>
+                                <h4 class="font-bold text-zinc-800 dark:text-zinc-200 text-sm">Pure Ingredients Only</h4>
+                                <p class="text-xs text-zinc-500 mt-0.5">Absolutely no chemical food coloring, MSG, or chemical catalysts.</p>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Right: Visual Card -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-amber-50 to-primary-50 dark:from-zinc-900 dark:to-zinc-900/60 p-8 rounded-3xl border border-zinc-200/50 dark:border-zinc-800 shadow-xl space-y-6 relative overflow-hidden">
+                    <!-- Background graphic -->
+                    <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-primary/5 rounded-full pointer-events-none"></div>
+                    
+                    <div class="flex items-center gap-3">
+                        <span class="material-icons text-primary-600 dark:text-primary-400 text-3xl">menu_book</span>
+                        <h4 class="font-display font-extrabold text-xl text-zinc-900 dark:text-white">Curry Menu June 2026</h4>
+                    </div>
+                    
+                    <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                        Looking for our full 16-page catering and kitchen menu? We've attached the complete official catalog detailing our combos, appetizers, biriyanis, traditional porottas, curries, and regional beverages.
+                    </p>
+                    
+                    <div class="p-4 bg-white dark:bg-zinc-950 rounded-2xl border border-zinc-200/50 dark:border-zinc-800/80 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <span class="material-icons text-spice text-2xl">picture_as_pdf</span>
+                            <div class="text-left">
+                                <p class="text-xs text-zinc-400 font-semibold uppercase">PDF Menu Document</p>
+                                <p class="text-sm font-bold truncate max-w-[180px] sm:max-w-xs text-zinc-800 dark:text-zinc-200">Curry Menu June 2026.pdf</p>
+                            </div>
+                        </div>
+                        <a href="/menu/Curry%20Menu%20June%202026.pdf" target="_blank" class="p-2 bg-primary hover:bg-primary-600 text-white rounded-lg transition" aria-label="Open PDF Menu in new tab">
+                            <span class="material-icons">open_in_new</span>
+                        </a>
+                    </div>
+                    
+                    <a href="/menu/Curry%20Menu%20June%202026.pdf" download class="block w-full text-center bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-zinc-200 dark:text-zinc-900 text-white py-3.5 rounded-xl font-bold text-sm shadow-md hover:shadow-lg transition">
+                        Download Complete PDF Menu
+                    </a>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- Why Choose Us Section -->
-    <section id="why"
-        class="py-12 sm:py-20 bg-surface-light dark:bg-background-dark border-y border-gray-200 dark:border-gray-800 overflow-hidden">
+    <section id="why" class="py-16 sm:py-24 bg-amber-50/5 dark:bg-zinc-900/10 overflow-hidden reveal-element">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-10 sm:mb-16">
-                <span class="inline-block px-4 py-1 bg-primary/10 text-primary font-bold text-sm rounded-full mb-4">THE
-                    ALLWIN'S DIFFERENCE</span>
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-gray-900 dark:text-white mb-4">
-                    Why Food
-                    Lovers Choose Us</h2>
-                <p class="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">We're not just another cloud kitchen.
-                    We're a culinary experience delivered to your doorstep.</p>
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-1 bg-primary-100/50 dark:bg-primary-950/30 text-primary-700 dark:text-primary-300 font-extrabold text-xs tracking-wider rounded-full uppercase mb-3">
+                    The Allwin's Difference
+                </span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-zinc-900 dark:text-white mb-4">
+                    Why Food Lovers Choose Us
+                </h2>
+                <p class="text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto">
+                    We aren't just another kitchen; we are the keepers of rich, wholesome culinary memories.
+                </p>
             </div>
 
-            <!-- Stats Row -->
-            <div class="grid grid-cols-3 gap-3 sm:gap-6 mb-10 sm:mb-16">
-                <div
-                    class="text-center p-3 sm:p-6 bg-white dark:bg-background-dark rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
-                    <div class="text-2xl sm:text-4xl lg:text-5xl font-display font-bold text-primary mb-1 sm:mb-2">500+
+            <!-- Bento Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-6xl mx-auto">
+                
+                <!-- Card 1: Authentic Madurai Taste (Col span 7) -->
+                <div class="md:col-span-7 relative overflow-hidden md:overflow-visible group bg-zinc-900 rounded-3xl border border-zinc-800 p-8 flex flex-col md:flex-row items-center gap-6 shadow-[0_0_50px_-12px_rgba(217,119,6,0.15)]">
+                    <!-- Top Gold Strip -->
+                    <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 rounded-t-3xl"></div>
+                    
+                    <!-- Circular plate popping out -->
+                    <div class="w-40 h-40 md:w-48 md:h-48 shrink-0 md:-ml-16 z-10 md:rotate-[-6deg] transition duration-500 group-hover:scale-105 group-hover:rotate-0">
+                        <img src="mutton_chukka.png" class="w-full h-full object-cover rounded-full border-4 border-zinc-800 shadow-2xl" alt="Mutton Chukka and Porotta plate" />
                     </div>
-                    <div class="text-xs sm:text-base text-gray-600 dark:text-gray-400 font-medium">Happy Customers</div>
+                    
+                    <!-- Text Content -->
+                    <div class="flex-1 space-y-3 text-left">
+                        <span class="inline-block px-3 py-1 bg-amber-500/10 text-amber-400 font-extrabold text-[10px] tracking-wider rounded-full uppercase">
+                            THE ALLWIN'S DIFFERENCE
+                        </span>
+                        <h3 class="text-2xl font-display font-extrabold text-white">Authentic Madurai Taste</h3>
+                        <p class="text-xs text-zinc-400 leading-relaxed">
+                            Keepers of rich, wholesome culinary memories. Sourced flour directly from Madurai, prepared in pure cow ghee, and absolutely free of MSG or colorings.
+                        </p>
+                    </div>
                 </div>
-                <div
-                    class="text-center p-3 sm:p-6 bg-white dark:bg-background-dark rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
-                    <div class="text-2xl sm:text-4xl lg:text-5xl font-display font-bold text-primary mb-1 sm:mb-2">30
-                    </div>
-                    <div class="text-xs sm:text-base text-gray-600 dark:text-gray-400 font-medium">Min Delivery</div>
-                </div>
-                <div
-                    class="text-center p-3 sm:p-6 bg-white dark:bg-background-dark rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
-                    <div class="text-2xl sm:text-4xl lg:text-5xl font-display font-bold text-primary mb-1 sm:mb-2">15+
-                    </div>
-                    <div class="text-xs sm:text-base text-gray-600 dark:text-gray-400 font-medium">Delicious Dishes
-                    </div>
-                </div>
-            </div>
 
-            <!-- Features Grid -->
-            <div class="grid md:grid-cols-3 gap-4 sm:gap-8">
-                <div
-                    class="group gradient-card p-5 sm:p-8 rounded-xl sm:rounded-2xl transition duration-300 hover:transform hover:-translate-y-2">
-                    <div
-                        class="w-12 h-12 sm:w-14 sm:h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition">
-                        <span class="material-icons text-primary text-2xl sm:text-3xl">restaurant</span>
+                <!-- Card 2: Organic Ingredients (Col span 5) -->
+                <div class="md:col-span-5 relative overflow-hidden group bg-zinc-900 rounded-3xl border border-zinc-800 p-8 flex flex-col justify-between shadow-[0_0_50px_-12px_rgba(217,119,6,0.15)]">
+                    <!-- 100% No Additive Badge -->
+                    <div class="absolute top-4 right-4 rotate-[6deg] bg-amber-500/10 border border-amber-500/30 text-amber-400 font-extrabold text-[10px] px-3 py-1.5 rounded-lg tracking-wider uppercase shadow-[0_0_15px_rgba(245,158,11,0.1)]">
+                        100% <br/><span class="text-[8px] opacity-80">No Additives</span>
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3">Mouthwatering
-                        Flavors</h3>
-                    <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-4 sm:mb-6">Every
-                        dish is crafted to perfection with bold spices and secret recipes that'll have you coming back
-                        for more. Taste the difference in every single bite!</p>
-                    <a href="#menu" class="text-primary font-bold flex items-center gap-1 hover:gap-2 transition-all">
-                        VIEW MENU <span class="material-icons text-sm">arrow_forward</span>
-                    </a>
-                </div>
-                <div
-                    class="group gradient-card p-5 sm:p-8 rounded-xl sm:rounded-2xl transition duration-300 hover:transform hover:-translate-y-2">
-                    <div
-                        class="w-12 h-12 sm:w-14 sm:h-14 bg-green-500/20 rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition">
-                        <span class="material-icons text-green-500 text-2xl sm:text-3xl">auto_awesome</span>
+                    
+                    <div class="mt-8 flex flex-col gap-6 items-start">
+                        <!-- Glowing Oil Bottle SVG -->
+                        <div class="text-amber-500/90 drop-shadow-[0_0_12px_rgba(245,158,11,0.5)]">
+                            <svg class="w-14 h-14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8 8V6a4 4 0 018 0v2m-6 10h4m-8 3h12a2 2 0 002-2v-9a2 2 0 00-2-2H6a2 2 0 00-2 2v9a2 2 0 002 2z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c1.5-1.5 3 0 1.5 3-1.5-1.5-3 0-1.5-3z" fill="currentColor" opacity="0.3" />
+                            </svg>
+                        </div>
+                        <div class="space-y-2 text-left">
+                            <h3 class="text-xl font-display font-extrabold text-white">Organic Ingredients</h3>
+                            <p class="text-xs text-zinc-400 leading-relaxed">
+                                We don't cheat on food. Fresh premium meats, stone-ground masalas, cold-pressed oils, and no shortcuts.
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3">Endless Variety
-                    </h3>
-                    <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-4 sm:mb-6">From
-                        spicy curries to cheesy pizzas, crispy snacks to hearty meals—we've got something for every
-                        craving and every mood.</p>
-                    <a href="#menu" class="text-green-500 font-bold flex items-center gap-1 hover:gap-2 transition-all">
-                        EXPLORE <span class="material-icons text-sm">arrow_forward</span>
-                    </a>
                 </div>
-                <div
-                    class="group gradient-card p-5 sm:p-8 rounded-xl sm:rounded-2xl transition duration-300 hover:transform hover:-translate-y-2">
-                    <div
-                        class="w-12 h-12 sm:w-14 sm:h-14 bg-blue-500/20 rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition">
-                        <span class="material-icons text-blue-500 text-2xl sm:text-3xl">savings</span>
+
+                <!-- Card 3: 30m Delivery (Col span 4) -->
+                <div class="md:col-span-4 relative overflow-hidden group bg-zinc-900 rounded-3xl border border-zinc-800 p-8 flex items-center justify-between shadow-[0_0_50px_-12px_rgba(217,119,6,0.15)]">
+                    <!-- Amber Side border highlight -->
+                    <div class="absolute top-0 bottom-0 left-0 w-1 bg-amber-500"></div>
+                    
+                    <div class="text-left space-y-1">
+                        <div class="text-4xl font-display font-black text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.3)]">30m</div>
+                        <p class="text-[10px] text-zinc-400 font-bold uppercase tracking-wider">Delivery Time</p>
                     </div>
-                    <h3 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3">Unbeatable Value
-                    </h3>
-                    <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-4 sm:mb-6">
-                        Restaurant-quality food at prices that won't break the bank. Generous portions, amazing taste,
-                        and quick delivery—all in one!</p>
-                    <a href="#order" class="text-blue-500 font-bold flex items-center gap-1 hover:gap-2 transition-all">
-                        ORDER NOW <span class="material-icons text-sm">arrow_forward</span>
-                    </a>
+                    
+                    <!-- Scooter SVG -->
+                    <div class="text-amber-500/90 drop-shadow-[0_0_12px_rgba(245,158,11,0.4)]">
+                        <svg class="w-14 h-14" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" opacity="0.1" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 17a2 2 0 100-4 2 2 0 000 4zM5 17a2 2 0 100-4 2 2 0 000 4zM9 15h6M7 15l1.5-6h5.5l1.5 6M9 9l.5-3h3.5m-5.5 0a1 1 0 100-2 1 1 0 000 2z" />
+                        </svg>
+                    </div>
                 </div>
+
+                <!-- Card 4: Swiggy, Zomato & WhatsApp Catering (Col span 8) -->
+                <div class="md:col-span-8 relative overflow-hidden group bg-zinc-900 rounded-3xl border border-zinc-800 p-8 flex flex-col md:flex-row items-center gap-8 justify-between shadow-[0_0_50px_-12px_rgba(217,119,6,0.15)]">
+                    <!-- Phone mock sticking out -->
+                    <div class="relative w-full max-w-[210px] h-[160px] border-4 border-zinc-800 rounded-t-3xl overflow-hidden bg-zinc-950 shadow-2xl flex flex-col self-end md:-mb-8 shrink-0">
+                        <div class="w-16 h-3 bg-zinc-850 absolute top-0 left-1/2 -translate-x-1/2 rounded-b-lg z-20 flex items-center justify-center">
+                            <div class="w-6 h-0.5 bg-zinc-700 rounded-full"></div>
+                        </div>
+                        
+                        <div class="bg-[#075e54] text-white px-3 pt-4 pb-1.5 text-[8px] font-bold flex items-center gap-1.5 border-b border-[#128c7e]/30">
+                            <div class="w-3.5 h-3.5 rounded-full bg-white/20 flex items-center justify-center font-bold text-[7px]">AK</div>
+                            <div class="text-left">
+                                <p class="leading-none text-[8px]">Allwin's Kitchen</p>
+                                <p class="text-[5px] text-green-300 font-normal mt-0.5">Online</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex-1 p-2 space-y-1.5 overflow-y-auto text-[7px] bg-[#e5ddd5] flex flex-col">
+                            <div class="bg-[#dcf8c6] self-end p-1.5 rounded-lg max-w-[85%] text-zinc-800 shadow-sm leading-tight text-left">
+                                💬 Hello, I'd like to book your kitchen for catering!
+                            </div>
+                            <div class="bg-white self-start p-1.5 rounded-lg max-w-[85%] text-zinc-800 shadow-sm leading-tight text-left border border-zinc-200">
+                                🍛 Sure! Let us know the date, headcount, and menu options.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="flex-1 space-y-3 text-left">
+                        <div class="flex items-center gap-2">
+                            <div class="w-7 h-7 rounded-full bg-[#25d366] flex items-center justify-center text-white shadow-[0_0_8px_rgba(37,211,102,0.3)]">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                    <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.333 4.993L2 22l5.13-1.347a9.944 9.944 0 004.877 1.28h.005c5.505 0 9.989-4.478 9.99-9.985A9.983 9.983 0 0012.012 2zm4.957 14.22c-.271.76-1.357 1.348-1.874 1.43-.459.08-1.074.125-2.73-.54-2.22-.89-3.64-3.13-3.75-3.27-.112-.15-.905-1.203-.905-2.294 0-1.09.57-1.63.772-1.84.182-.19.454-.27.737-.27.092 0 .175.004.25.008.225.01.338.012.488.37.186.448.64 1.557.697 1.67.056.115.093.248.015.4-.078.152-.178.252-.297.393-.119.14-.25.313-.107.56.28.487.62.86 1.03 1.22.53.46 1.075.76 1.48.96.27.14.43.12.59-.06.17-.19.74-.86.94-1.15.15-.22.3-.18.5-.1.21.08 1.33.627 1.56.74.23.11.38.17.43.27.06.1.06.57-.21 1.33z" />
+                                </svg>
+                            </div>
+                            <span class="text-xs font-bold text-green-400 uppercase tracking-wider">Catering & Direct Chat</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-display font-extrabold text-white">Direct WhatsApp Inquiries</h3>
+                        <p class="text-xs text-zinc-400 leading-relaxed">
+                            Need catering, bulk meal prep, or custom recipes for a private house party? Tap our floating WhatsApp button to chat directly with our chef. For regular orders, tap any dish below to order via Swiggy or Zomato!
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
-
     <!-- Menu Section -->
-    <section class="py-12 sm:py-20 bg-background-light dark:bg-background-dark" id="menu">
+    <section class="py-16 sm:py-24 bg-white dark:bg-zinc-950 reveal-element" id="menu">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+            
+            <!-- Menu Title -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
                 <div>
-                    <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-2">Our Menu
+                    <span class="inline-block px-4 py-1 bg-primary-100/50 dark:bg-primary-950/30 text-primary-700 dark:text-primary-300 font-extrabold text-xs tracking-wider rounded-full uppercase mb-2">
+                        Collaborative Menu
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-zinc-900 dark:text-white">
+                        Featured Collaboration Specialties
                     </h2>
-                    <p class="text-gray-500 dark:text-gray-400">Signature dishes, ready to be devoured.</p>
-                </div>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="menu-grid">
-                <!-- Menu Item 1 -->
-                <div class="menu-item group bg-white dark:bg-surface-dark rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 border border-gray-100 dark:border-gray-700"
-                    data-name="Allwin's Special Curry" data-price="14.99">
-                    <div class="relative overflow-hidden h-56">
-                        <img alt="Allwin's Special - Drunken Chicken"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-                            src="https://raw.githubusercontent.com/x-Kevin-Paul-x/Allwins-Kitchen/main/public/Drunken_Chicken.png" />
-                        <div
-                            class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                            Best Seller</div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3
-                                class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition">
-                                Allwin's Special Curry</h3>
-                            <span class="text-lg font-display font-bold text-primary">$14.99</span>
-                        </div>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">Slow-cooked tender chicken in a rich,
-                            aromatic spice blend served with saffron rice.</p>
-                        <button
-                            class="add-to-cart w-full bg-surface-light dark:bg-gray-800 hover:bg-primary hover:text-white text-gray-900 dark:text-white py-3 rounded-lg font-bold transition flex items-center justify-center gap-2">
-                            <span class="material-icons text-sm">add_shopping_cart</span>
-                            Add to Order
-                        </button>
-                    </div>
-                </div>
-                <!-- Menu Item 2 -->
-                <div class="menu-item group bg-white dark:bg-surface-dark rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 border border-gray-100 dark:border-gray-700"
-                    data-name="Rustic Pizza" data-price="12.50">
-                    <div class="relative overflow-hidden h-56">
-                        <img alt="Rustic Pizza"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRRGnAnz_wcp8QU-PNWlNYvFpsGKpgtsbd-2JiojBz7SoM18j-kil8EmfKMdQnesjuLuzzIJ1EqmqvBtYZlPWiF847ACu13tSDcmkqykT0Sldalzey3yMIURTttixa1cFAHivj1e1Hj0nUclcEV-j86Xz56HXWKKLThcXzFjU_sY0RLtv1NRzwQRkP55TDwjz9SVBkhbIVZjiVJnOTq3eo7DPq2ta2fyn0EWhorFz-z4g_lSxtRdENi4DVBbTK_-WS6qsdmnzrIqFa" />
-                        <div
-                            class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                            Popular</div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3
-                                class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition">
-                                Rustic Pizza</h3>
-                            <span class="text-lg font-display font-bold text-primary">$12.50</span>
-                        </div>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">Wood-fired base topped with fresh
-                            mozzarella, basil, and our secret tomato sauce.</p>
-                        <button
-                            class="add-to-cart w-full bg-surface-light dark:bg-gray-800 hover:bg-primary hover:text-white text-gray-900 dark:text-white py-3 rounded-lg font-bold transition flex items-center justify-center gap-2">
-                            <span class="material-icons text-sm">add_shopping_cart</span>
-                            Add to Order
-                        </button>
-                    </div>
-                </div>
-                <!-- Menu Item 3 -->
-                <div class="menu-item group bg-white dark:bg-surface-dark rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 border border-gray-100 dark:border-gray-700"
-                    data-name="Spicy Thai Noodles" data-price="11.00">
-                    <div class="relative overflow-hidden h-56">
-                        <img alt="Spicy Thai Noodles"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYzpDB4F-rp82CBVLzx_Vr05uzc_23_PkshX3CdWjzfLYLmeYj5nadb8yVkJLgvUBDSMsCrcTt42KYEDh91StCdO3VGKpGU4rUTDIyhuVWCIXbk-zG40gKk5CtMhktDertnEyAIL-mx0SWXECSo8HW95PyGRfK9jOiLkFJrlDETTxiE0gskwI1jNlhd8GBWB5xVJc0-J3_ZyBaL7QHPwIT4mzynqINVJuW54LSmaLLJu7n8tdZBD5noVr08BWiLxexZidNHrn1xlP4" />
-                        <div
-                            class="absolute top-4 right-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                            Veg</div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3
-                                class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition">
-                                Spicy Thai Noodles</h3>
-                            <span class="text-lg font-display font-bold text-primary">$11.00</span>
-                        </div>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">Wok-tossed noodles with crunchy
-                            vegetables, peanuts, and a zesty lime dressing.</p>
-                        <button
-                            class="add-to-cart w-full bg-surface-light dark:bg-gray-800 hover:bg-primary hover:text-white text-gray-900 dark:text-white py-3 rounded-lg font-bold transition flex items-center justify-center gap-2">
-                            <span class="material-icons text-sm">add_shopping_cart</span>
-                            Add to Order
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Testimonial Section -->
-    <section class="py-12 sm:py-16 bg-primary">
-        <div class="max-w-4xl mx-auto px-4 text-center text-white">
-            <span class="material-icons text-4xl sm:text-5xl mb-4 sm:mb-6 opacity-80">format_quote</span>
-            <h2 class="text-xl sm:text-2xl md:text-4xl font-serif italic font-medium leading-relaxed mb-6 sm:mb-8">
-                "The most consistent cloud kitchen in the city. The packaging ensures the food arrives piping hot, just
-                like dining in."
-            </h2>
-            <div class="flex items-center justify-center gap-4">
-                <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center font-bold text-lg">JS
-                </div>
-                <div class="text-left">
-                    <div class="font-bold">John Smith</div>
-                    <div class="text-sm opacity-80">Regular Customer</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Order Section -->
-    <section class="py-12 sm:py-16 lg:py-20 bg-background-light dark:bg-background-dark" id="order">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-4">Ready to Order?
-            </h2>
-            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto">
-                Place your order now via WhatsApp or give us a call. We'll prepare your food fresh and deliver it hot to
-                your doorstep!
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://wa.me/919880378412?text=Hi! I'd like to place an order from Allwin's Kitchen"
-                    target="_blank"
-                    class="bg-green-500 hover:bg-green-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg transition flex items-center justify-center gap-2 sm:gap-3 shadow-lg">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                    </svg>
-                    Order via WhatsApp
-                </a>
-                <a href="tel:+919880378412"
-                    class="bg-gray-900 dark:bg-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg transition flex items-center justify-center gap-2 sm:gap-3 shadow-lg">
-                    <span class="material-icons">phone</span>
-                    Call Us Now
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white pt-10 sm:pt-16 pb-6 sm:pb-8" id="contact">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 mb-8 sm:mb-12">
-                <div class="col-span-2 md:col-span-1">
-                    <div class="flex flex-col mb-4">
-                        <span
-                            class="font-display font-bold text-2xl tracking-wide uppercase leading-none">Allwin's</span>
-                        <span class="font-serif italic text-xs tracking-widest text-gray-400">KITCHEN</span>
-                    </div>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Bringing gourmet experiences to your dining table. Quality ingredients, hygienic preparation,
-                        and love in every bite.
+                    <p class="text-zinc-500 dark:text-zinc-400 mt-1">
+                        Handpicked Madurai delicacies by Allwin's Kitchen × The Curry.
                     </p>
                 </div>
+                <a href="/menu/Curry%20Menu%20June%202026.pdf" target="_blank" class="inline-flex items-center gap-2 border-2 border-primary text-primary hover:bg-primary hover:text-white px-5 py-2.5 rounded-xl font-bold text-sm transition focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                    <span class="material-icons text-sm">menu_book</span>
+                    View Full 16-Page Menu
+                </a>
+            </div>
+            
+            <!-- Category Tabs -->
+            <div class="flex gap-2 overflow-x-auto pb-4 mb-8 -mx-4 px-4 sm:mx-0 sm:px-0">
+                <button onclick="filterMenu('all')" class="menu-tab px-5 py-2.5 rounded-full font-bold text-sm whitespace-nowrap bg-primary text-white transition focus:outline-none" data-cat="all">
+                    All Items
+                </button>
+                <button onclick="filterMenu('signatures')" class="menu-tab px-5 py-2.5 rounded-full font-semibold text-sm text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition whitespace-nowrap focus:outline-none" data-cat="signatures">
+                    Signatures
+                </button>
+                <button onclick="filterMenu('biriyani')" class="menu-tab px-5 py-2.5 rounded-full font-semibold text-sm text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition whitespace-nowrap focus:outline-none" data-cat="biriyani">
+                    Jeera Samba Biriyani
+                </button>
+                <button onclick="filterMenu('parotta')" class="menu-tab px-5 py-2.5 rounded-full font-semibold text-sm text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition whitespace-nowrap focus:outline-none" data-cat="parotta">
+                    Parotta & Kothu
+                </button>
+                <button onclick="filterMenu('desserts')" class="menu-tab px-5 py-2.5 rounded-full font-semibold text-sm text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition whitespace-nowrap focus:outline-none" data-cat="desserts">
+                    Desserts & Drinks
+                </button>
+            </div>
+
+            <!-- Menu Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="menu-grid">
+                
+                <!-- Item 1: Bun Porotta (Hero Star Card - spans 2 columns) -->
+                <div class="menu-card md:col-span-2 group bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm rounded-3xl border-2 border-primary/45 dark:border-primary/20 overflow-hidden shadow-md hover:shadow-xl hover:shadow-primary-500/5 dark:hover:shadow-primary-500/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col md:flex-row justify-between" data-category="signatures parotta">
+                    <!-- Details side -->
+                    <div class="p-8 flex-1 flex flex-col justify-between text-left">
+                        <div class="space-y-4">
+                            <!-- Badges -->
+                            <div class="flex gap-2 flex-wrap">
+                                <span class="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Chef's Special</span>
+                                <span class="bg-amber-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Best Seller</span>
+                                <span class="bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1">
+                                    <span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span> Veg
+                                </span>
+                            </div>
+                            
+                            <!-- Title & Price -->
+                            <div>
+                                <h3 class="font-display font-extrabold text-2xl text-zinc-900 dark:text-white leading-tight group-hover:text-primary transition">Bun Porotta (1 Pc)</h3>
+                                <div class="flex items-center gap-1.5 mt-2">
+                                    <span class="font-display font-extrabold text-primary text-2xl">₹40</span>
+                                    <span class="text-xs text-zinc-400 dark:text-zinc-500 font-bold uppercase tracking-wider ml-1">Daily Fresh</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Description -->
+                            <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                                Legendary flaky, layered, soft bun parotta. Sourced flour directly from Madurai. Prepared on a hot tawa with fresh cow ghee. Best served hot with chicken or mutton salna.
+                            </p>
+                        </div>
+                        
+
+                    </div>
+                    
+                    <!-- Round Image side -->
+                    <div class="relative w-full md:w-[280px] shrink-0 aspect-[4/3] md:aspect-square overflow-hidden bg-zinc-100 dark:bg-zinc-950 flex items-center justify-center p-4">
+                        <img alt="Madurai Bun Porotta" class="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover group-hover:scale-105 transition-transform duration-500 shadow-2xl border-4 border-zinc-800/80" src="bun_parotta.png" loading="lazy" />
+                    </div>
+                </div>
+
+                <!-- Item 2: Mutton Chukka -->
+                <div class="menu-card group bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm rounded-3xl border border-zinc-200/60 dark:border-zinc-800/80 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary-500/5 dark:hover:shadow-primary-500/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" data-category="signatures">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-zinc-100 dark:bg-zinc-950">
+                        <img alt="Mutton Chukka" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="mutton_chukka.png" loading="lazy" />
+                        <span class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Must Try</span>
+                        <span class="absolute top-4 right-4 bg-zinc-950/70 backdrop-blur-sm text-white p-1.5 rounded-full flex items-center justify-center">
+                            <span class="w-2.5 h-2.5 bg-red-500 rounded-full border border-white" title="Non-Vegetarian"></span>
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between text-left">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-start gap-2">
+                                <h3 class="font-display font-extrabold text-lg text-zinc-900 dark:text-white leading-tight group-hover:text-primary transition">Mutton Chukka (Bone)</h3>
+                                <span class="font-display font-extrabold text-primary text-lg whitespace-nowrap">₹340</span>
+                            </div>
+                            
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-red-500 text-sm">whatshot</span>
+                                <span class="material-icons text-red-500 text-sm">whatshot</span>
+                                <span class="material-icons text-red-500 text-sm">whatshot</span>
+                                <span class="text-[9px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider ml-1">Spicy</span>
+                            </div>
+                            
+                            <p class="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-3 leading-relaxed">
+                                Tender mutton pieces slow-cooked in traditional stone-ground masalas, gingelly oil, and fresh curry leaves.
+                            </p>
+                        </div>
+                        
+
+                    </div>
+                </div>
+
+                <!-- Item 3: Kari Dosa -->
+                <div class="menu-card group bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm rounded-3xl border border-zinc-200/60 dark:border-zinc-800/80 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary-500/5 dark:hover:shadow-primary-500/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" data-category="signatures">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-zinc-100 dark:bg-zinc-950">
+                        <img alt="Mutton Kari Dosa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="kari_dosa.png" loading="lazy" />
+                        <span class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Iconic</span>
+                        <span class="absolute top-4 right-4 bg-zinc-950/70 backdrop-blur-sm text-white p-1.5 rounded-full flex items-center justify-center">
+                            <span class="w-2.5 h-2.5 bg-red-500 rounded-full border border-white" title="Non-Vegetarian"></span>
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between text-left">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-start gap-2">
+                                <h3 class="font-display font-extrabold text-lg text-zinc-900 dark:text-white leading-tight group-hover:text-primary transition">Kari/Mutton Dosa</h3>
+                                <span class="font-display font-extrabold text-primary text-lg whitespace-nowrap">₹280</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-red-500 text-sm">whatshot</span>
+                                <span class="material-icons text-red-500 text-sm">whatshot</span>
+                                <span class="text-[9px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider ml-1">Medium Spicy</span>
+                            </div>
+                            <p class="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-3 leading-relaxed">
+                                Thick Madurai-style tawa dosa topped with spicy minced mutton, beaten egg, and native spices.
+                            </p>
+                        </div>
+                        
+
+                    </div>
+                </div>
+
+                <!-- Item 4: Special Jigarthanda -->
+                <div class="menu-card group bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm rounded-3xl border border-zinc-200/60 dark:border-zinc-800/80 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary-500/5 dark:hover:shadow-primary-500/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" data-category="signatures desserts">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-zinc-100 dark:bg-zinc-950">
+                        <img alt="Special Jigarthanda" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="jigarthanda.png" loading="lazy" />
+                        <span class="absolute top-4 left-4 bg-spice text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Dessert Queen</span>
+                        <span class="absolute top-4 right-4 bg-zinc-950/70 backdrop-blur-sm text-white p-1.5 rounded-full flex items-center justify-center">
+                            <span class="w-2.5 h-2.5 bg-green-500 rounded-full border border-white" title="Vegetarian"></span>
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between text-left">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-start gap-2">
+                                <h3 class="font-display font-extrabold text-lg text-zinc-900 dark:text-white leading-tight group-hover:text-primary transition">Special Jigarthanda</h3>
+                                <span class="font-display font-extrabold text-primary text-lg whitespace-nowrap">₹160</span>
+                            </div>
+                            <p class="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-3 leading-relaxed">
+                                Condensed milk, organic badam pisin, and sarsaparilla root syrup topped with a scoop of signature ice cream.
+                            </p>
+                        </div>
+                        
+
+                    </div>
+                </div>
+
+                <!-- Item 5: Chicken Biriyani -->
+                <div class="menu-card group bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm rounded-3xl border border-zinc-200/60 dark:border-zinc-800/80 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary-500/5 dark:hover:shadow-primary-500/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" data-category="biriyani">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-zinc-100 dark:bg-zinc-950">
+                        <img alt="Chicken Biriyani" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="chicken_biryani.png" loading="lazy" />
+                        <span class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Jeera Samba</span>
+                        <span class="absolute top-4 right-4 bg-zinc-950/70 backdrop-blur-sm text-white p-1.5 rounded-full flex items-center justify-center">
+                            <span class="w-2.5 h-2.5 bg-red-500 rounded-full border border-white" title="Non-Vegetarian"></span>
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between text-left">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-start gap-2">
+                                <h3 class="font-display font-extrabold text-lg text-zinc-900 dark:text-white leading-tight group-hover:text-primary transition">Chicken Biriyani</h3>
+                                <span class="font-display font-extrabold text-primary text-lg whitespace-nowrap">₹270</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-red-500 text-sm">whatshot</span>
+                                <span class="material-icons text-red-500 text-sm">whatshot</span>
+                                <span class="text-[9px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider ml-1">Medium Spicy</span>
+                            </div>
+                            <p class="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-3 leading-relaxed">
+                                Classic Madurai-style Seeraga Samba rice biriyani, cooked with farm-fresh chicken, pure cow ghee. Served with raitha.
+                            </p>
+                        </div>
+                        
+
+                    </div>
+                </div>
+
+                <!-- Item 6: Naatu Kozhi Biriyani (Expandable) -->
+                <div class="menu-card menu-expandable group bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm rounded-3xl border border-zinc-200/60 dark:border-zinc-800/80 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary-500/5 dark:hover:shadow-primary-500/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" style="display: none;" data-category="biriyani">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-zinc-100 dark:bg-zinc-950">
+                        <img alt="Country Chicken Biriyani" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-550" src="country_chicken_biryani.png" loading="lazy" />
+                        <span class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Country Chicken</span>
+                        <span class="absolute top-4 right-4 bg-zinc-950/70 backdrop-blur-sm text-white p-1.5 rounded-full flex items-center justify-center">
+                            <span class="w-2.5 h-2.5 bg-red-500 rounded-full border border-white" title="Non-Vegetarian"></span>
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between text-left">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-start gap-2">
+                                <h3 class="font-display font-extrabold text-lg text-zinc-900 dark:text-white leading-tight group-hover:text-primary transition">Naatu Kozhi Chops Biriyani</h3>
+                                <span class="font-display font-extrabold text-primary text-lg whitespace-nowrap">₹320</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-red-500 text-sm">whatshot</span>
+                                <span class="material-icons text-red-500 text-sm">whatshot</span>
+                                <span class="text-[9px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider ml-1">Medium Spicy</span>
+                            </div>
+                            <p class="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-3 leading-relaxed">
+                                Premium country chicken chops layered with fragrant Seeraga Samba rice and traditional spices. Served with raitha.
+                            </p>
+                        </div>
+                        
+
+                    </div>
+                </div>
+
+                <!-- Item 7: Mutton Biriyani (Expandable) -->
+                <div class="menu-card menu-expandable group bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm rounded-3xl border border-zinc-200/60 dark:border-zinc-800/80 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary-500/5 dark:hover:shadow-primary-500/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" style="display: none;" data-category="biriyani">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-zinc-100 dark:bg-zinc-950">
+                        <img alt="Mutton Biriyani" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-550" src="mutton_biryani.png" loading="lazy" />
+                        <span class="absolute top-4 left-4 bg-spice text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Sunday Exclusive</span>
+                        <span class="absolute top-4 right-4 bg-zinc-950/70 backdrop-blur-sm text-white p-1.5 rounded-full flex items-center justify-center">
+                            <span class="w-2.5 h-2.5 bg-red-500 rounded-full border border-white" title="Non-Vegetarian"></span>
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between text-left">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-start gap-2">
+                                <h3 class="font-display font-extrabold text-lg text-zinc-900 dark:text-white leading-tight group-hover:text-primary transition">Mutton Biriyani</h3>
+                                <span class="font-display font-extrabold text-primary text-lg whitespace-nowrap">₹330</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-red-500 text-sm">whatshot</span>
+                                <span class="material-icons text-red-500 text-sm">whatshot</span>
+                                <span class="text-[9px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider ml-1">Medium Spicy</span>
+                            </div>
+                            <p class="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-3 leading-relaxed">
+                                Sunday exclusive. Seeraga Samba rice biriyani with slow-cooked tender mutton, pure cow ghee, and hand-ground spices.
+                            </p>
+                        </div>
+                        
+
+                    </div>
+                </div>
+
+                <!-- Item 8: Chicken Kothu Parotta (Expandable) -->
+                <div class="menu-card menu-expandable group bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm rounded-3xl border border-zinc-200/60 dark:border-zinc-800/80 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary-500/5 dark:hover:shadow-primary-500/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" style="display: none;" data-category="parotta">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-zinc-100 dark:bg-zinc-950">
+                        <img alt="Chicken Kothu Parotta" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-550" src="kothu_parotta.png" loading="lazy" />
+                        <span class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Street Style</span>
+                        <span class="absolute top-4 right-4 bg-zinc-950/70 backdrop-blur-sm text-white p-1.5 rounded-full flex items-center justify-center">
+                            <span class="w-2.5 h-2.5 bg-red-500 rounded-full border border-white" title="Non-Vegetarian"></span>
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between text-left">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-start gap-2">
+                                <h3 class="font-display font-extrabold text-lg text-zinc-900 dark:text-white leading-tight group-hover:text-primary transition">Chicken Kothu Parotta</h3>
+                                <span class="font-display font-extrabold text-primary text-lg whitespace-nowrap">₹230</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-red-500 text-sm">whatshot</span>
+                                <span class="material-icons text-red-500 text-sm">whatshot</span>
+                                <span class="text-[9px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider ml-1">Medium Spicy</span>
+                            </div>
+                            <p class="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-3 leading-relaxed">
+                                Flaky parotta shredded and beaten on tawa with chicken pieces, egg, onions, and curry leaves in specialized gravy.
+                            </p>
+                        </div>
+                        
+
+                    </div>
+                </div>
+
+                <!-- Item 9: Mutton Pichu Pota Parotta (Expandable) -->
+                <div class="menu-card menu-expandable group bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm rounded-3xl border border-zinc-200/60 dark:border-zinc-800/80 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary-500/5 dark:hover:shadow-primary-500/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" style="display: none;" data-category="parotta">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-zinc-100 dark:bg-zinc-950">
+                        <img alt="Mutton Pichu Pota Parotta" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-550" src="pichu_pota_parotta.png" loading="lazy" />
+                        <span class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Chef Special</span>
+                        <span class="absolute top-4 right-4 bg-zinc-950/70 backdrop-blur-sm text-white p-1.5 rounded-full flex items-center justify-center">
+                            <span class="w-2.5 h-2.5 bg-red-500 rounded-full border border-white" title="Non-Vegetarian"></span>
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between text-left">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-start gap-2">
+                                <h3 class="font-display font-extrabold text-lg text-zinc-900 dark:text-white leading-tight group-hover:text-primary transition">Mutton Pichu Pota Parotta</h3>
+                                <span class="font-display font-extrabold text-primary text-lg whitespace-nowrap">₹300</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="material-icons text-red-500 text-sm">whatshot</span>
+                                <span class="material-icons text-red-500 text-sm">whatshot</span>
+                                <span class="text-[9px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider ml-1">Medium Spicy</span>
+                            </div>
+                            <p class="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-3 leading-relaxed">
+                                Shredded parotta soaked in aromatic salna, topped with delicious boneless mutton chukka and soft scrambled egg.
+                            </p>
+                        </div>
+                        
+
+                    </div>
+                </div>
+
+                <!-- Item 10: Rose Milk (Expandable) -->
+                <div class="menu-card menu-expandable group bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm rounded-3xl border border-zinc-200/60 dark:border-zinc-800/80 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary-500/5 dark:hover:shadow-primary-500/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" style="display: none;" data-category="desserts">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-zinc-100 dark:bg-zinc-950">
+                        <img alt="Rose Milk" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="rose_milk.png" loading="lazy" />
+                        <span class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Chilled</span>
+                        <span class="absolute top-4 right-4 bg-zinc-950/70 backdrop-blur-sm text-white p-1.5 rounded-full flex items-center justify-center">
+                            <span class="w-2.5 h-2.5 bg-green-500 rounded-full border border-white" title="Vegetarian"></span>
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between text-left">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-start gap-2">
+                                <h3 class="font-display font-extrabold text-lg text-zinc-900 dark:text-white leading-tight group-hover:text-primary transition">Rose Milk (with Ice Cream)</h3>
+                                <span class="font-display font-extrabold text-primary text-lg whitespace-nowrap">₹100</span>
+                            </div>
+                            <p class="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-3 leading-relaxed">
+                                Rose-infused milk topped with premium vanilla ice cream. An incredibly refreshing beverage.
+                            </p>
+                        </div>
+                        
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Show More Button with bottom padding fix -->
+            <div class="mt-12 flex justify-center pb-20">
+                <button id="show-more-btn" onclick="toggleShowMore()" class="inline-flex items-center gap-2 px-6 py-3 border-2 border-primary/50 text-primary dark:text-amber-400 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white rounded-xl font-bold text-sm transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none">
+                    <span class="btn-text">Show More Dishes</span>
+                    <span class="material-icons text-sm transition-transform duration-300">expand_more</span>
+                </button>
+            </div>    <!-- Testimonials Slider Section -->
+    <section class="py-16 sm:py-24 bg-primary text-white overflow-hidden relative">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.1),transparent_40%)] pointer-events-none"></div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <span class="material-icons text-5xl opacity-50 mb-6">format_quote</span>
+            
+            <!-- Slider container -->
+            <div class="relative h-48 sm:h-40 overflow-hidden mb-8">
+                <!-- Slide 1 -->
+                <div class="testimonial-slide absolute inset-0 flex flex-col justify-center items-center opacity-100 transform translate-x-0" id="slide-0">
+                    <p class="text-lg sm:text-2xl font-display font-medium italic leading-relaxed max-w-2xl px-4">
+                        "The Bun Parotta was incredibly soft and flaky, just like what you get on the streets of Madurai! The Mutton Chukka had perfect spice levels."
+                    </p>
+                    <div class="mt-6 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center font-bold text-sm">KP</div>
+                        <div class="text-left">
+                            <p class="font-bold text-sm">Kevin Paul</p>
+                            <p class="text-xs text-white/70">Whitefield Resident</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="testimonial-slide absolute inset-0 flex flex-col justify-center items-center opacity-0 transform translate-x-8 pointer-events-none" id="slide-1">
+                    <p class="text-lg sm:text-2xl font-display font-medium italic leading-relaxed max-w-2xl px-4">
+                        "Finally, a cloud kitchen that serves Jigarthanda with authentic badam pisin! Incredible taste, clean packaging, and no MSG headache afterward."
+                    </p>
+                    <div class="mt-6 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center font-bold text-sm">AR</div>
+                        <div class="text-left">
+                            <p class="font-bold text-sm">Ananya Rao</p>
+                            <p class="text-xs text-white/70">Software Engineer</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="testimonial-slide absolute inset-0 flex flex-col justify-center items-center opacity-0 transform translate-x-8 pointer-events-none" id="slide-2">
+                    <p class="text-lg sm:text-2xl font-display font-medium italic leading-relaxed max-w-2xl px-4">
+                        "We ordered their Sunday Mutton Biryani catering combo for a house party. The Seeraga Samba rice flavor was outstanding. Guests loved it!"
+                    </p>
+                    <div class="mt-6 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center font-bold text-sm">MS</div>
+                        <div class="text-left">
+                            <p class="font-bold text-sm">Manjunath S.</p>
+                            <p class="text-xs text-white/70">Regular Customer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dots Navigation -->
+            <div class="flex justify-center gap-2">
+                <button onclick="setSlide(0)" class="w-2.5 h-2.5 rounded-full bg-white transition-opacity duration-300 focus:outline-none" id="dot-0" aria-label="Go to slide 1"></button>
+                <button onclick="setSlide(1)" class="w-2.5 h-2.5 rounded-full bg-white/40 transition-opacity duration-300 focus:outline-none" id="dot-1" aria-label="Go to slide 2"></button>
+                <button onclick="setSlide(2)" class="w-2.5 h-2.5 rounded-full bg-white/40 transition-opacity duration-300 focus:outline-none" id="dot-2" aria-label="Go to slide 3"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact Section -->
+    <footer class="bg-zinc-50 dark:bg-zinc-950 text-zinc-600 dark:text-zinc-400 pt-16 pb-8 border-t border-zinc-200 dark:border-zinc-900" id="contact">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                
+                <!-- Col 1: About -->
+                <div class="space-y-4">
+                    <div class="flex flex-col">
+                        <span class="font-display font-extrabold text-zinc-900 dark:text-white text-2xl tracking-tight leading-none">ALLWIN'S KITCHEN</span>
+                        <span class="text-xs text-primary-500 font-display tracking-widest font-bold mt-1 uppercase">x The Curry Madurai</span>
+                    </div>
+                    <p class="text-sm leading-relaxed text-zinc-650 dark:text-zinc-400">
+                        Bringing genuine Madurai-style food heritage straight to your home in Whitefield. Made with clean, authentic ingredients and a lot of love.
+                    </p>
+                </div>
+                
+                <!-- Col 2: Quick Links -->
                 <div>
-                    <h3 class="font-bold text-lg mb-4">Quick Links</h3>
-                    <ul class="space-y-2 text-gray-400 text-sm">
-                        <li><a class="hover:text-primary transition" href="#">Home</a></li>
-                        <li><a class="hover:text-primary transition" href="#menu">Our Menu</a></li>
-                        <li><a class="hover:text-primary transition" href="#why">Why Us</a></li>
-                        <li><a class="hover:text-primary transition" href="#order">Order Now</a></li>
+                    <h3 class="font-display font-bold text-zinc-900 dark:text-white text-base tracking-wider uppercase mb-4">Quick Links</h3>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a class="hover:text-primary transition duration-150" href="#">Home</a></li>
+                        <li><a class="hover:text-primary transition duration-150" href="#collaboration">Collaboration</a></li>
+                        <li><a class="hover:text-primary transition duration-150" href="#menu">Our Menu</a></li>
+                        <li><a class="hover:text-primary transition duration-150" href="#why">Why Us</a></li>
                     </ul>
                 </div>
-                <div class="col-span-2 md:col-span-1">
-                    <h3 class="font-bold text-lg mb-4">Contact Us</h3>
-                    <ul class="space-y-3 text-gray-400 text-sm">
-                        <li class="flex items-start gap-3">
-                            <span class="material-icons text-primary text-sm mt-1">location_on</span>
-                            <span>Gandhipuram, Whitefield,<br />Bengaluru, Karnataka 560066, India</span>
+                
+                <!-- Col 3: Contact details -->
+                <div class="col-span-1 md:col-span-1">
+                    <h3 class="font-display font-bold text-zinc-900 dark:text-white text-base tracking-wider uppercase mb-4">Contact Us</h3>
+                    <ul class="space-y-3.5 text-sm">
+                        <li class="flex items-start gap-2.5">
+                            <span class="material-icons text-primary text-base mt-0.5">location_on</span>
+                            <span class="text-zinc-700 dark:text-zinc-300">
+                                2nd Floor, 44 Leelavathi Achar Complex,<br />
+                                Immadihalli Main Road, Whitefield,<br />
+                                Bengaluru, Karnataka 560066
+                            </span>
                         </li>
-                        <li class="flex items-center gap-3">
-                            <span class="material-icons text-primary text-sm">phone</span>
-                            <a href="tel:+919880378412" class="hover:text-primary transition">+91 98803 78412</a>
+                        <li class="flex items-center gap-2.5">
+                            <span class="material-icons text-primary text-base">phone</span>
+                            <a href="tel:+919880378412" class="text-zinc-800 dark:text-zinc-300 hover:text-primary transition font-semibold">+91 98803 78412</a>
                         </li>
-                        <li class="flex items-center gap-3">
-                            <span class="material-icons text-primary text-sm">email</span>
-                            <a href="mailto:hello@allwinskitchen.com"
-                                class="hover:text-primary transition">hello@allwinskitchen.com</a>
+                        <li class="flex items-center gap-2.5">
+                            <span class="material-icons text-primary text-base">email</span>
+                            <a href="mailto:hello@allwinskitchen.com" class="text-zinc-800 dark:text-zinc-300 hover:text-primary transition">hello@allwinskitchen.com</a>
                         </li>
                     </ul>
                 </div>
+                
+                <!-- Col 4: Opening Hours -->
                 <div>
-                    <h3 class="font-bold text-lg mb-4">Opening Hours</h3>
-                    <ul class="space-y-2 text-gray-400 text-sm">
-                        <li class="flex justify-between">
+                    <h3 class="font-display font-bold text-zinc-900 dark:text-white text-base tracking-wider uppercase mb-4">Opening Hours</h3>
+                    <ul class="space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
+                        <li class="flex justify-between border-b border-zinc-200 dark:border-zinc-900 pb-1.5">
                             <span>Mon - Fri</span>
-                            <span class="text-white">10:00 AM - 10:00 PM</span>
+                            <span class="font-bold text-zinc-900 dark:text-white">10:00 AM - 10:00 PM</span>
                         </li>
                         <li class="flex justify-between">
                             <span>Sat - Sun</span>
-                            <span class="text-white">11:00 AM - 11:00 PM</span>
+                            <span class="font-bold text-zinc-900 dark:text-white">11:00 AM - 11:00 PM</span>
                         </li>
                     </ul>
                     <div class="flex gap-4 mt-6">
-                        <a class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition"
-                            href="#" aria-label="Instagram">
+                        <a class="w-10 h-10 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-500 dark:text-zinc-400 hover:text-primary hover:border-primary transition" href="#" aria-label="Instagram">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                             </svg>
                         </a>
-                        <a class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition"
-                            href="#" aria-label="Facebook">
+                        <a class="w-10 h-10 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-500 dark:text-zinc-400 hover:text-green-500 hover:border-green-500 transition" href="https://wa.me/919880378412" aria-label="WhatsApp">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                            </svg>
-                        </a>
-                        <a class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-green-500 transition"
-                            href="https://wa.me/919880378412" aria-label="WhatsApp">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                             </svg>
                         </a>
                     </div>
                 </div>
             </div>
-            <div
-                class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-                <p>© 2025 Allwin's Kitchen. All rights reserved.</p>
-                <div class="flex gap-6 mt-4 md:mt-0">
-                    <a class="hover:text-white transition" href="#">Privacy Policy</a>
-                    <a class="hover:text-white transition" href="#">Terms of Service</a>
+            
+            <!-- Bottom Copyright -->
+            <div class="border-t border-zinc-200 dark:border-zinc-900 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-zinc-500">
+                <p>© 2026 Allwin's Kitchen × The Curry. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0 font-medium">
+                    <a class="hover:text-zinc-900 dark:hover:text-white transition" href="#">Privacy Policy</a>
+                    <a class="hover:text-zinc-900 dark:hover:text-white transition" href="#">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/919880378412?text=Hi! I'd like to place an order from Allwin's Kitchen" target="_blank"
-        class="whatsapp-float fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition transform hover:scale-110"
+    <a href="https://wa.me/919880378412?text=Hi! I'd like to place an order from Allwin's Kitchen × The Curry" target="_blank"
+        class="whatsapp-float fixed bottom-6 right-6 z-30 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition transform hover:scale-110 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
         aria-label="Order via WhatsApp">
         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-            <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>
     </a>
 
-    <!-- Cart Sidebar -->
-    <div id="cart-sidebar" class="fixed inset-0 z-50 hidden">
-        <div class="absolute inset-0 bg-black/50" id="cart-overlay"></div>
-        <div
-            class="absolute right-0 top-0 h-full w-full max-w-md bg-white dark:bg-background-dark shadow-2xl transform transition-transform duration-300">
-            <div class="flex flex-col h-full">
-                <div class="flex justify-between items-center p-6 border-b border-gray-200 dark:border-gray-800">
-                    <h3 class="text-xl font-bold">Your Order</h3>
-                    <button id="close-cart"
-                        class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition">
-                        <span class="material-icons">close</span>
-                    </button>
-                </div>
-                <div id="cart-items" class="flex-1 overflow-y-auto p-6">
-                    <p class="text-gray-500 dark:text-gray-400 text-center py-8">Your cart is empty</p>
-                </div>
-                <div class="border-t border-gray-200 dark:border-gray-800 p-6">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="font-bold">Total:</span>
-                        <span id="cart-total" class="text-2xl font-display font-bold text-primary">$0.00</span>
-                    </div>
-                    <a id="checkout-whatsapp" href="#" target="_blank"
-                        class="block w-full bg-green-500 hover:bg-green-600 text-white py-4 rounded-xl font-bold text-center transition">
-                        Order via WhatsApp
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
 
+    <!-- Client-Side JavaScript Logic -->
     <script>
-        // Cart functionality
-        let cart = [];
+        let isExpanded = false;
+        let currentCategory = 'all';
 
-        function updateCart() {
-            const cartCount = document.getElementById('cart-count');
-            const cartItems = document.getElementById('cart-items');
-            const cartTotal = document.getElementById('cart-total');
-            const checkoutBtn = document.getElementById('checkout-whatsapp');
-
-            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-
-            if (totalItems > 0) {
-                cartCount.textContent = totalItems;
-                cartCount.classList.remove('hidden');
-            } else {
-                cartCount.classList.add('hidden');
-            }
-
-            cartTotal.textContent = '$' + totalPrice.toFixed(2);
-
-            if (cart.length === 0) {
-                cartItems.innerHTML = '<p class="text-gray-500 dark:text-gray-400 text-center py-8">Your cart is empty</p>';
-            } else {
-                cartItems.innerHTML = cart.map((item, index) => `
-                    <div class="flex justify-between items-center py-3 border-b border-gray-100 dark:border-gray-800">
-                        <div class="flex-1">
-                            <p class="font-medium">${item.name}</p>
-                            <p class="text-sm text-gray-500">$${item.price.toFixed(2)} x ${item.qty}</p>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <button onclick="updateQty(${index}, -1)" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition">-</button>
-                            <span class="w-8 text-center font-bold">${item.qty}</span>
-                            <button onclick="updateQty(${index}, 1)" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-700 transition">+</button>
-                        </div>
-                    </div>
-                `).join('');
-            }
-
-            // Update WhatsApp checkout link
-            if (cart.length > 0) {
-                const orderText = cart.map(item => `${item.qty}x ${item.name} ($${(item.price * item.qty).toFixed(2)})`).join('%0A');
-                checkoutBtn.href = `https://wa.me/919880378412?text=Hi! I'd like to order:%0A${orderText}%0A%0ATotal: $${totalPrice.toFixed(2)}`;
-            }
-        }
-
-        function updateQty(index, delta) {
-            cart[index].qty += delta;
-            if (cart[index].qty <= 0) {
-                cart.splice(index, 1);
-            }
-            updateCart();
-        }
-
-        // Add to cart buttons
-        document.querySelectorAll('.add-to-cart').forEach(btn => {
-            btn.addEventListener('click', function () {
-                const item = this.closest('.menu-item');
-                const name = item.dataset.name;
-                const price = parseFloat(item.dataset.price);
-
-                const existing = cart.find(i => i.name === name);
-                if (existing) {
-                    existing.qty++;
+        // Dynamic Menu Category Filtering
+        function filterMenu(category) {
+            currentCategory = category;
+            const cards = document.querySelectorAll('.menu-card');
+            const tabs = document.querySelectorAll('.menu-tab');
+            const showMoreBtn = document.getElementById('show-more-btn');
+            
+            // Highlight active tab
+            tabs.forEach(tab => {
+                const cat = tab.getAttribute('data-cat');
+                if (cat === category) {
+                    tab.classList.remove('text-zinc-600', 'dark:text-zinc-400', 'hover:bg-zinc-100', 'dark:hover:bg-zinc-900');
+                    tab.classList.add('bg-primary', 'text-white');
                 } else {
-                    cart.push({ name, price, qty: 1 });
+                    tab.classList.add('text-zinc-600', 'dark:text-zinc-400', 'hover:bg-zinc-100', 'dark:hover:bg-zinc-900');
+                    tab.classList.remove('bg-primary', 'text-white');
                 }
-
-                updateCart();
-
-                // Visual feedback
-                this.innerHTML = '<span class="material-icons text-sm">check</span> Added!';
-                this.classList.add('bg-green-500', 'text-white');
-                setTimeout(() => {
-                    this.innerHTML = '<span class="material-icons text-sm">add_shopping_cart</span> Add to Order';
-                    this.classList.remove('bg-green-500', 'text-white');
-                }, 1500);
             });
-        });
 
-        // Cart sidebar
-        document.getElementById('cart-btn').addEventListener('click', () => {
-            document.getElementById('cart-sidebar').classList.remove('hidden');
-        });
-
-        document.getElementById('close-cart').addEventListener('click', () => {
-            document.getElementById('cart-sidebar').classList.add('hidden');
-        });
-
-        document.getElementById('cart-overlay').addEventListener('click', () => {
-            document.getElementById('cart-sidebar').classList.add('hidden');
-        });
-
-        // Mobile menu
-        document.getElementById('mobile-menu-btn').addEventListener('click', function () {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
-
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('mobile-menu').classList.add('hidden');
+            // Filter cards
+            cards.forEach(card => {
+                const cats = card.getAttribute('data-category').split(' ');
+                const isExpandable = card.classList.contains('menu-expandable');
+                const matchesCategory = (category === 'all' || cats.includes(category));
+                
+                if (matchesCategory) {
+                    if (category === 'all' && isExpandable && !isExpanded) {
+                        card.style.display = 'none';
+                    } else {
+                        card.style.display = 'flex';
+                        card.classList.remove('menu-card-animate');
+                        void card.offsetWidth; // Force reflow
+                        card.classList.add('menu-card-animate');
+                    }
+                } else {
+                    card.style.display = 'none';
+                }
             });
-        });
 
-        // Dark mode toggle
+            // Show More Button visibility
+            if (category === 'all') {
+                showMoreBtn.classList.remove('hidden');
+                showMoreBtn.classList.add('inline-flex');
+            } else {
+                showMoreBtn.classList.add('hidden');
+                showMoreBtn.classList.remove('inline-flex');
+            }
+        }
+
+        // Toggle Expand Show More
+        function toggleShowMore() {
+            isExpanded = !isExpanded;
+            const btn = document.getElementById('show-more-btn');
+            const icon = btn.querySelector('.material-icons');
+            const text = btn.querySelector('.btn-text');
+            
+            if (isExpanded) {
+                text.textContent = "Show Less Dishes";
+                icon.textContent = "expand_less";
+            } else {
+                text.textContent = "Show More Dishes";
+                icon.textContent = "expand_more";
+                document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
+            }
+            filterMenu(currentCategory);
+        }
+
+        // Toggle Dark/Light Modes
         function toggleDarkMode() {
             document.documentElement.classList.toggle('dark');
             localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
@@ -869,30 +1229,87 @@
         document.getElementById('theme-toggle').addEventListener('click', toggleDarkMode);
         document.getElementById('theme-toggle-mobile').addEventListener('click', toggleDarkMode);
 
-        // Check for saved dark mode preference
+        // Load theme preferences
         if (localStorage.getItem('darkMode') === 'true' ||
             (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
         }
 
-        // Scroll for Why Us section - position to show full content including cards
-        document.querySelectorAll('a[href="#why"]').forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                const section = document.getElementById('why');
-                if (section) {
-                    // Different navbar heights for mobile vs desktop
-                    const isMobile = window.innerWidth < 640;
-                    const navbarHeight = isMobile ? 64 : 80;
-                    // Different offsets for mobile (scroll less) vs desktop
-                    const offset = isMobile ? 20 : 57;
-                    const scrollTo = section.offsetTop - navbarHeight + offset;
-                    window.scrollTo({ top: Math.max(0, scrollTo), behavior: 'smooth' });
-                }
+        // Mobile header drawer toggles
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const menuIcon = document.getElementById('menu-icon');
 
-                // Close mobile menu if open
-                document.getElementById('mobile-menu').classList.add('hidden');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.textContent = 'menu';
+            } else {
+                menuIcon.textContent = 'close';
+            }
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.textContent = 'menu';
             });
+        });
+
+        // Testimonial slider logic
+        let currentSlide = 0;
+        const totalSlides = 3;
+
+        function showSlide(index) {
+            for (let i = 0; i < totalSlides; i++) {
+                const slide = document.getElementById(`slide-${i}`);
+                const dot = document.getElementById(`dot-${i}`);
+                
+                if (i === index) {
+                    slide.classList.remove('opacity-0', 'translate-x-8', 'pointer-events-none');
+                    slide.classList.add('opacity-100', 'translate-x-0');
+                    dot.classList.remove('bg-white/40');
+                    dot.classList.add('bg-white');
+                } else {
+                    slide.classList.add('opacity-0', 'translate-x-8', 'pointer-events-none');
+                    slide.classList.remove('opacity-100', 'translate-x-0');
+                    dot.classList.add('bg-white/40');
+                    dot.classList.remove('bg-white');
+                }
+            }
+            currentSlide = index;
+        }
+
+        function setSlide(index) {
+            showSlide(index);
+        }
+
+        // Auto play testimonial slider
+        setInterval(() => {
+            let next = currentSlide + 1;
+            if (next >= totalSlides) next = 0;
+            showSlide(next);
+        }, 5000);
+        
+        // Initial setup
+        filterMenu('all');
+
+        // Scroll-triggered entry animations (Reveal on scroll)
+        const revealElements = document.querySelectorAll('.reveal-element');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.05,
+            rootMargin: '0px 0px -40px 0px'
+        });
+        
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
         });
     </script>
 </body>
