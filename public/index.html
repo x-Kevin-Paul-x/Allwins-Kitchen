@@ -4,186 +4,56 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Allwin's Kitchen × The Curry | Taste of Madurai in Whitefield</title>
+    <title>Allwin's Kitchen × The Curry | Taste of Madurai — Whitefield, Bangalore</title>
     <meta name="description"
-        content="Allwin's Kitchen in partnership with The Curry - Taste of Madurai. Experience authentic Bun Parotta, Mutton Chukka, and Jigarthanda in Whitefield, Bangalore. Fresh ingredients, no MSG." />
+        content="Allwin's Kitchen in partnership with The Curry | Taste of Madurai. Experience authentic Madurai food (Bun Parotta, Mutton Chukka, Jigarthanda) in Whitefield, Bangalore. Order on Swiggy and Zomato!" />
     <meta name="keywords"
-        content="Allwins Kitchen, The Curry, Taste of Madurai, Whitefield food delivery, Bun Parotta Bangalore, Mutton Chukka Whitefield, Jigarthanda Bangalore, cloud kitchen Bangalore" />
+        content="Allwins Kitchen, Allwins Kitchen Whitefield, The Curry, The Curry Whitefield, Taste of Madurai, Taste of Madurai Whitefield, Whitefield food delivery, Bun Parotta Bangalore, Mutton Chukka Whitefield, Jigarthanda Bangalore, cloud kitchen Bangalore" />
     <meta name="author" content="Allwin's Kitchen × The Curry" />
     
     <!-- Open Graph / Social -->
     <meta property="og:title" content="Allwin's Kitchen × The Curry | Taste of Madurai" />
     <meta property="og:description" content="Experience authentic Madurai street food crafted with soul in Whitefield, Bangalore. Order online!" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="Logo_Without_Bg.png" />
+    <meta property="og:image" content="https://allwinskitchen.com/Logo_Without_Bg.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     
-    <!-- Favicon & Canonical -->
-    <link rel="icon" type="image/png" href="Logo_Without_Bg.png" />
+    <!-- Favicon & Canonical (Configured for Google Search snippet logo displaying) -->
+    <link rel="shortcut icon" href="Logo_Without_Bg.png" />
+    <link rel="apple-touch-icon" href="Logo_Without_Bg.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="Logo_Without_Bg.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="Logo_Without_Bg.png" />
+    <link rel="icon" type="image/png" href="Logo_Without_Bg.webp" />
     <link rel="canonical" href="https://allwinskitchen.com" />
+
+    <!-- Preload LCP hero image — tells browser to fetch this immediately -->
+    <link rel="preload" as="image" href="mutton_chukka.webp" fetchpriority="high" />
     
-    <!-- Tailwind CSS with Typography & Forms plugins -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-    
-    <!-- Premium Fonts: Plus Jakarta Sans for headings & Inter for body -->
+    <!-- Tailwind CSS — purged build-time stylesheet (replaces 120 KB CDN script) -->
+    <link rel="stylesheet" href="/styles.css">
+
+    <!-- Google Fonts — only the 4 weights actually used -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Plus+Jakarta+Sans:wght@700;800&display=optional" rel="stylesheet">
     
-    <!-- Material Icons -->
+    <!-- Material Icons (kept for design looks) -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     
-    <!-- Custom Tailwind Configurations -->
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            50: '#fefbeb',
-                            100: '#fef3c7',
-                            200: '#fde68a',
-                            300: '#fcd34d',
-                            400: '#fbbf24',
-                            500: '#f59e0b',
-                            600: '#d97706',
-                            700: '#b45309',
-                            800: '#92400e',
-                            900: '#78350f',
-                            DEFAULT: '#d97706',
-                        },
-                        spice: {
-                            50: '#fef2f2',
-                            100: '#fee2e2',
-                            500: '#ef4444',
-                            600: '#dc2626',
-                            700: '#b91c1c',
-                            DEFAULT: '#b91c1c',
-                        },
 
-                    },
-                    fontFamily: {
-                        display: ["Plus Jakarta Sans", "sans-serif"],
-                        body: ["Inter", "sans-serif"],
-                    },
-                },
-            },
-        };
-    </script>
-    
-    <!-- Custom CSS Styles -->
-    <style>
-        .glass-header {
-            background-color: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
-        }
-        .dark .glass-header {
-            background-color: rgba(9, 9, 11, 0.6);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .hero-gradient {
-            background: radial-gradient(circle at 10% 20%, rgba(217, 119, 6, 0.08) 0%, transparent 40%),
-                        radial-gradient(circle at 90% 80%, rgba(185, 28, 28, 0.06) 0%, transparent 45%);
-        }
-        
-        .dark .hero-gradient {
-            background: radial-gradient(circle at 10% 20%, rgba(217, 119, 6, 0.15) 0%, transparent 40%),
-                        radial-gradient(circle at 90% 80%, rgba(185, 28, 28, 0.1) 0%, transparent 45%);
-        }
-
-        .food-grid-pattern {
-            background-size: 24px 24px;
-            background-image: radial-gradient(circle, rgba(0,0,0,0.02) 1px, transparent 1px);
-        }
-        .dark .food-grid-pattern {
-            background-image: radial-gradient(circle, rgba(255,255,255,0.015) 1px, transparent 1px);
-        }
-
-        /* Custom Scrollbar for Drawer & Menu */
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #d97706;
-            border-radius: 3px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #b45309;
-        }
-        
-        .whatsapp-float {
-            animation: pulse-glow 2s infinite;
-        }
-        
-        @keyframes pulse-glow {
-            0%, 100% {
-                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
-            }
-            50% {
-                box-shadow: 0 0 20px 8px rgba(34, 197, 94, 0.2);
-            }
-        }
-
-        .cart-bounce {
-            animation: cart-pop 0.3s ease-out;
-        }
-
-        @keyframes cart-pop {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.3); }
-            100% { transform: scale(1); }
-        }
-
-        /* Testimonial slider styles */
-        .testimonial-slide {
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-        }
-
-        /* Smooth category filtering entry animation */
-        @keyframes card-fade-in {
-            from {
-                opacity: 0;
-                transform: translateY(12px) scale(0.98);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-        .menu-card-animate {
-            animation: card-fade-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        /* Scroll-triggered reveal animation */
-        .reveal-element {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal-element.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
-    
     <!-- Local Restaurant Schema (SEO JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "FoodEstablishment",
-      "name": "Allwin's Kitchen × The Curry",
+      "name": "Allwin's Kitchen × The Curry | Taste of Madurai",
       "image": [
-        "Logo_Without_Bg.png",
-        "Shami_Kabab.png"
+        "https://allwinskitchen.com/Logo_Without_Bg.png",
+        "https://allwinskitchen.com/mutton_chukka.webp"
       ],
-      "description": "Authentic Madurai street foods and traditional curries served in Whitefield, Bangalore. An exclusive collaboration with The Curry, Taste of Madurai.",
+      "logo": "https://allwinskitchen.com/Logo_Without_Bg.png",
+      "description": "Authentic Madurai street foods and traditional curries served in Whitefield, Bangalore. An exclusive collaboration with The Curry | Taste of Madurai.",
       "telephone": "+919880378412",
       "url": "https://allwinskitchen.com",
       "priceRange": "₹₹",
@@ -256,12 +126,11 @@
                 
                 <!-- Logo & Brand -->
                 <a href="#" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-primary rounded-lg p-1">
-                    <img src="Logo_Without_Bg.png" alt="Allwin's Kitchen Logo" class="h-10 w-10 sm:h-12 sm:w-12 object-contain group-hover:scale-105 transition-transform" />
+                    <img src="Logo_Without_Bg.webp" alt="Allwin's Kitchen Logo" width="48" height="48" class="h-10 w-10 sm:h-12 sm:w-12 object-contain group-hover:scale-105 transition-transform" />
                     <div class="flex flex-col">
                         <span class="font-display font-extrabold text-lg sm:text-xl tracking-tight leading-none text-zinc-900 dark:text-white">ALLWIN'S KITCHEN</span>
-                        <span class="text-[10px] sm:text-[11px] font-display font-medium tracking-wider text-primary-600 dark:text-primary-400 mt-0.5 flex items-center gap-1 uppercase">
-                            <span class="inline-block w-1.5 h-1.5 rounded-full bg-spice"></span>
-                            × The Curry Madurai
+                        <span class="text-[10px] sm:text-[11px] font-display font-bold tracking-wider text-primary-600 dark:text-primary-400 mt-0.5 flex items-center gap-1 uppercase">
+                            ✕ The Curry | Taste of Madurai
                         </span>
                     </div>
                 </a>
@@ -391,21 +260,25 @@
                     <h2 class="text-xl sm:text-2xl font-display font-bold text-zinc-700 dark:text-zinc-300 mt-2">
                         Authentic Flavors, Crafted with Soul.
                         <span class="inline-block mt-3 px-3 py-1 bg-amber-500/10 dark:bg-amber-500/5 text-amber-700 dark:text-amber-400 font-bold text-[11px] tracking-wider rounded-full uppercase border border-amber-500/20 whitespace-nowrap">
-                            ✕ The Curry, Madurai
+                            ✕ The Curry | Taste of Madurai
                         </span>
                     </h2>
                     
-                    <p class="hidden sm:block text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                        Experience the taste of iconic Madurai street food and rich, spice-laden curries. Sourced flour directly from Madurai, prepared in pure cow ghee, and absolutely free of MSG or artificial colorings.
+                    <p class="hidden sm:block text-base sm:text-lg text-zinc-650 dark:text-zinc-350 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                        Experience the taste of iconic Madurai street food and rich, spice-laden curries at Allwin's Kitchen × The Curry | Taste of Madurai in Whitefield, Bangalore. Prepared with fresh ingredients, pure cow ghee, and absolutely free of MSG.
                     </p>
                     
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4 group">
                         <a href="#menu" class="bg-primary hover:bg-primary-600 active:bg-primary-700 text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg transition duration-200 flex items-center justify-center gap-2 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
                             Explore Menu
-                            <span class="material-icons text-xl">arrow_forward</span>
+                            <svg class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
                         </a>
                         <a href="menu/Curry%20Menu%20June%202026.pdf" target="_blank" class="border border-zinc-300 dark:border-zinc-700 text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900 px-6 py-4 rounded-xl font-bold text-base transition flex items-center justify-center gap-2">
-                            <span class="material-icons">picture_as_pdf</span>
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                            </svg>
                             View PDF Menu
                         </a>
                     </div>
@@ -413,15 +286,21 @@
                     <!-- Stats Badges -->
                     <div class="pt-6 border-t border-zinc-200/50 dark:border-zinc-800/50 grid grid-cols-3 gap-2 text-center lg:text-left lg:flex lg:items-center lg:justify-start lg:gap-6">
                         <div class="flex flex-col lg:flex-row items-center lg:items-center gap-1 lg:gap-1.5">
-                            <span class="material-icons text-primary text-lg">star</span>
+                            <svg class="w-4 h-4 text-primary fill-current" viewBox="0 0 24 24">
+                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
                             <span class="text-[10px] sm:text-xs font-bold text-zinc-700 dark:text-zinc-300 leading-tight">4.8/5 Rating</span>
                         </div>
                         <div class="flex flex-col lg:flex-row items-center lg:items-center gap-1 lg:gap-1.5">
-                            <span class="material-icons text-primary text-lg">clean_hands</span>
+                            <svg class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
                             <span class="text-[10px] sm:text-xs font-bold text-zinc-700 dark:text-zinc-300 leading-tight">No MSG</span>
                         </div>
                         <div class="flex flex-col lg:flex-row items-center lg:items-center gap-1 lg:gap-1.5">
-                            <span class="material-icons text-primary text-lg">local_shipping</span>
+                            <svg class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125a1.125 1.125 0 001.125-1.125V9.75M8.25 13.875h1.125a1.125 1.125 0 011.125 1.125v1.5m-6 0h12" />
+                            </svg>
                             <span class="text-[10px] sm:text-xs font-bold text-zinc-700 dark:text-zinc-300 leading-tight">Hot Delivery</span>
                         </div>
                     </div>
@@ -431,7 +310,7 @@
                 <div class="relative group mt-8 lg:mt-0 flex justify-center">
                     <div class="absolute -inset-4 bg-gradient-to-tr from-primary/30 to-spice-500/20 rounded-full blur-2xl group-hover:bg-primary/30 transition duration-500 max-w-lg w-full aspect-square"></div>
                     <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white dark:border-zinc-800/80 transform rotate-2 hover:rotate-0 transition duration-500 max-w-md w-full">
-                        <img alt="Traditional Madurai Mutton Chukka" class="w-full object-cover h-[350px] sm:h-[450px]" src="mutton_chukka.png" />
+                        <img alt="Traditional Madurai Mutton Chukka" class="w-full object-cover h-[350px] sm:h-[450px]" src="mutton_chukka.webp" width="900" height="450" fetchpriority="high" />
                         <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-zinc-950/80 via-zinc-950/40 to-transparent p-6 text-white">
                             <p class="font-display font-extrabold text-xl sm:text-2xl">Traditional Mutton Chukka</p>
                             <p class="text-sm text-zinc-200 mt-1 font-medium">Authentic spice-laden slow-cooked delicacy</p>
@@ -455,18 +334,28 @@
                         The Culinary Partnership
                     </span>
                     <h3 class="text-3xl sm:text-4xl font-display font-extrabold text-zinc-900 dark:text-white">
-                        Allwin's Kitchen × The Curry
+                        Allwin's Kitchen × The Curry | Taste of Madurai
                     </h3>
                     
                     <div class="h-1 w-16 bg-primary rounded-full"></div>
                     
-                    <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed text-base sm:text-lg">
-                        Madurai, the historic culinary heart of southern India, is famous for its vibrant street food culture. To bring these authentic, legendary recipes to Whitefield, **Allwin's Kitchen** has collaborated with **The Curry - Taste of Madurai** (Kothanur).
+                    <p class="text-zinc-700 dark:text-zinc-300 leading-relaxed text-base sm:text-lg">
+                        Madurai, the historic culinary heart of southern India, is famous for its vibrant street food culture. To bring these authentic, legendary recipes to Whitefield, <strong class="font-bold text-zinc-900 dark:text-white border-b-2 border-primary-500/30 pb-0.5">Allwin's Kitchen</strong> has collaborated with <strong class="font-bold text-zinc-900 dark:text-white border-b-2 border-primary-500/30 pb-0.5">The Curry | Taste of Madurai</strong>.
                     </p>
                     
-                    <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed text-base">
-                        This collaboration brings traditional spices, slow-cooked meat preparations, and the famous bun parotta to your plate. Our commitment to quality means we import the unique parotta flour directly from Madurai, use only premium cold-pressed groundnut and coconut oils, and prepare dishes in pure cow ghee. We stand firm against artificial enhancers: **no MSG, no thickeners, and no artificial colors**.
+                    <p class="text-zinc-700 dark:text-zinc-300 leading-relaxed text-base">
+                        This collaboration brings traditional spices, slow-cooked meat preparations, and the famous bun parotta to your plate. Our commitment to quality means we import the unique parotta flour directly from Madurai, and use only premium cold-pressed groundnut and coconut oils.
                     </p>
+                    
+                    <div class="mt-8 p-6 rounded-3xl bg-amber-500/5 dark:bg-amber-500/5 border border-amber-500/10 dark:border-amber-500/20 shadow-sm relative overflow-hidden">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="material-icons text-primary-600 dark:text-primary-400 text-2xl">verified_user</span>
+                            <h4 class="font-display font-extrabold text-zinc-900 dark:text-white text-base">Our Clean Food Promise</h4>
+                        </div>
+                        <p class="text-zinc-700 dark:text-zinc-300 text-sm leading-relaxed">
+                            We stand firm against artificial enhancers: <strong class="font-extrabold text-spice-600 dark:text-spice-500">no MSG, no thickeners, and no artificial colors</strong>. Every single dish is prepared in pure cow ghee and cold-pressed oils.
+                        </p>
+                    </div>
                     
                     <div class="grid grid-cols-2 gap-6 pt-4">
                         <div class="flex gap-3">
@@ -547,7 +436,7 @@
                     
                     <!-- Circular plate popping out -->
                     <div class="w-40 h-40 md:w-48 md:h-48 shrink-0 md:-ml-16 z-10 md:rotate-[-6deg] transition duration-500 group-hover:scale-105 group-hover:rotate-0">
-                        <img src="mutton_chukka.png" class="w-full h-full object-cover rounded-full border-4 border-zinc-800 shadow-2xl" alt="Mutton Chukka and Porotta plate" />
+                        <img src="mutton_chukka.webp" width="192" height="192" class="w-full h-full object-cover rounded-full border-4 border-zinc-800 shadow-2xl" alt="Mutton Chukka and Porotta plate" loading="lazy" />
                     </div>
                     
                     <!-- Text Content -->
@@ -731,14 +620,14 @@
                     
                     <!-- Round Image side -->
                     <div class="relative w-full md:w-[280px] shrink-0 aspect-[4/3] md:aspect-square overflow-hidden bg-zinc-100 dark:bg-zinc-950 flex items-center justify-center p-4">
-                        <img alt="Madurai Bun Porotta" class="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover group-hover:scale-105 transition-transform duration-500 shadow-2xl border-4 border-zinc-800/80" src="bun_parotta.png" loading="lazy" />
+                        <img alt="Madurai Bun Porotta" class="w-40 h-40 md:w-56 md:h-56 rounded-full object-cover group-hover:scale-105 transition-transform duration-500 shadow-2xl border-4 border-zinc-800/80" src="bun_parotta.webp" width="224" height="224" loading="lazy" />
                     </div>
                 </div>
 
                 <!-- Item 2: Mutton Chukka -->
                 <div class="menu-card group bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm rounded-3xl border border-zinc-200/60 dark:border-zinc-800/80 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary-500/5 dark:hover:shadow-primary-500/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" data-category="signatures">
                     <div class="relative overflow-hidden aspect-[4/3] bg-zinc-100 dark:bg-zinc-950">
-                        <img alt="Mutton Chukka" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="mutton_chukka.png" loading="lazy" />
+                        <img alt="Mutton Chukka" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="mutton_chukka.webp" width="400" height="300" loading="lazy" />
                         <span class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Must Try</span>
                         <span class="absolute top-4 right-4 bg-zinc-950/70 backdrop-blur-sm text-white p-1.5 rounded-full flex items-center justify-center">
                             <span class="w-2.5 h-2.5 bg-red-500 rounded-full border border-white" title="Non-Vegetarian"></span>
@@ -770,7 +659,7 @@
                 <!-- Item 3: Kari Dosa -->
                 <div class="menu-card group bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm rounded-3xl border border-zinc-200/60 dark:border-zinc-800/80 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary-500/5 dark:hover:shadow-primary-500/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" data-category="signatures">
                     <div class="relative overflow-hidden aspect-[4/3] bg-zinc-100 dark:bg-zinc-950">
-                        <img alt="Mutton Kari Dosa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="kari_dosa.png" loading="lazy" />
+                        <img alt="Mutton Kari Dosa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="kari_dosa.webp" width="400" height="300" loading="lazy" />
                         <span class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Iconic</span>
                         <span class="absolute top-4 right-4 bg-zinc-950/70 backdrop-blur-sm text-white p-1.5 rounded-full flex items-center justify-center">
                             <span class="w-2.5 h-2.5 bg-red-500 rounded-full border border-white" title="Non-Vegetarian"></span>
@@ -799,7 +688,7 @@
                 <!-- Item 4: Special Jigarthanda -->
                 <div class="menu-card group bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm rounded-3xl border border-zinc-200/60 dark:border-zinc-800/80 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary-500/5 dark:hover:shadow-primary-500/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" data-category="signatures desserts">
                     <div class="relative overflow-hidden aspect-[4/3] bg-zinc-100 dark:bg-zinc-950">
-                        <img alt="Special Jigarthanda" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="jigarthanda.png" loading="lazy" />
+                        <img alt="Special Jigarthanda" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="jigarthanda.webp" width="400" height="300" loading="lazy" />
                         <span class="absolute top-4 left-4 bg-spice text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Dessert Queen</span>
                         <span class="absolute top-4 right-4 bg-zinc-950/70 backdrop-blur-sm text-white p-1.5 rounded-full flex items-center justify-center">
                             <span class="w-2.5 h-2.5 bg-green-500 rounded-full border border-white" title="Vegetarian"></span>
@@ -823,7 +712,7 @@
                 <!-- Item 5: Chicken Biriyani -->
                 <div class="menu-card group bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm rounded-3xl border border-zinc-200/60 dark:border-zinc-800/80 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary-500/5 dark:hover:shadow-primary-500/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" data-category="biriyani">
                     <div class="relative overflow-hidden aspect-[4/3] bg-zinc-100 dark:bg-zinc-950">
-                        <img alt="Chicken Biriyani" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="chicken_biryani.png" loading="lazy" />
+                        <img alt="Chicken Biriyani" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="chicken_biryani.webp" width="400" height="300" loading="lazy" />
                         <span class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Jeera Samba</span>
                         <span class="absolute top-4 right-4 bg-zinc-950/70 backdrop-blur-sm text-white p-1.5 rounded-full flex items-center justify-center">
                             <span class="w-2.5 h-2.5 bg-red-500 rounded-full border border-white" title="Non-Vegetarian"></span>
@@ -852,7 +741,7 @@
                 <!-- Item 6: Naatu Kozhi Biriyani (Expandable) -->
                 <div class="menu-card menu-expandable group bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm rounded-3xl border border-zinc-200/60 dark:border-zinc-800/80 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary-500/5 dark:hover:shadow-primary-500/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" style="display: none;" data-category="biriyani">
                     <div class="relative overflow-hidden aspect-[4/3] bg-zinc-100 dark:bg-zinc-950">
-                        <img alt="Country Chicken Biriyani" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-550" src="country_chicken_biryani.png" loading="lazy" />
+                        <img alt="Country Chicken Biriyani" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-550" src="country_chicken_biryani.webp" width="400" height="300" loading="lazy" />
                         <span class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Country Chicken</span>
                         <span class="absolute top-4 right-4 bg-zinc-950/70 backdrop-blur-sm text-white p-1.5 rounded-full flex items-center justify-center">
                             <span class="w-2.5 h-2.5 bg-red-500 rounded-full border border-white" title="Non-Vegetarian"></span>
@@ -881,7 +770,7 @@
                 <!-- Item 7: Mutton Biriyani (Expandable) -->
                 <div class="menu-card menu-expandable group bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm rounded-3xl border border-zinc-200/60 dark:border-zinc-800/80 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary-500/5 dark:hover:shadow-primary-500/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" style="display: none;" data-category="biriyani">
                     <div class="relative overflow-hidden aspect-[4/3] bg-zinc-100 dark:bg-zinc-950">
-                        <img alt="Mutton Biriyani" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-550" src="mutton_biryani.png" loading="lazy" />
+                        <img alt="Mutton Biriyani" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-550" src="mutton_biryani.webp" width="400" height="300" loading="lazy" />
                         <span class="absolute top-4 left-4 bg-spice text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Sunday Exclusive</span>
                         <span class="absolute top-4 right-4 bg-zinc-950/70 backdrop-blur-sm text-white p-1.5 rounded-full flex items-center justify-center">
                             <span class="w-2.5 h-2.5 bg-red-500 rounded-full border border-white" title="Non-Vegetarian"></span>
@@ -910,7 +799,7 @@
                 <!-- Item 8: Chicken Kothu Parotta (Expandable) -->
                 <div class="menu-card menu-expandable group bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm rounded-3xl border border-zinc-200/60 dark:border-zinc-800/80 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary-500/5 dark:hover:shadow-primary-500/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" style="display: none;" data-category="parotta">
                     <div class="relative overflow-hidden aspect-[4/3] bg-zinc-100 dark:bg-zinc-950">
-                        <img alt="Chicken Kothu Parotta" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-550" src="kothu_parotta.png" loading="lazy" />
+                        <img alt="Chicken Kothu Parotta" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-550" src="kothu_parotta.webp" width="400" height="300" loading="lazy" />
                         <span class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Street Style</span>
                         <span class="absolute top-4 right-4 bg-zinc-950/70 backdrop-blur-sm text-white p-1.5 rounded-full flex items-center justify-center">
                             <span class="w-2.5 h-2.5 bg-red-500 rounded-full border border-white" title="Non-Vegetarian"></span>
@@ -939,7 +828,7 @@
                 <!-- Item 9: Mutton Pichu Pota Parotta (Expandable) -->
                 <div class="menu-card menu-expandable group bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm rounded-3xl border border-zinc-200/60 dark:border-zinc-800/80 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary-500/5 dark:hover:shadow-primary-500/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" style="display: none;" data-category="parotta">
                     <div class="relative overflow-hidden aspect-[4/3] bg-zinc-100 dark:bg-zinc-950">
-                        <img alt="Mutton Pichu Pota Parotta" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-550" src="pichu_pota_parotta.png" loading="lazy" />
+                        <img alt="Mutton Pichu Pota Parotta" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-550" src="pichu_pota_parotta.webp" width="400" height="300" loading="lazy" />
                         <span class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Chef Special</span>
                         <span class="absolute top-4 right-4 bg-zinc-950/70 backdrop-blur-sm text-white p-1.5 rounded-full flex items-center justify-center">
                             <span class="w-2.5 h-2.5 bg-red-500 rounded-full border border-white" title="Non-Vegetarian"></span>
@@ -968,7 +857,7 @@
                 <!-- Item 10: Rose Milk (Expandable) -->
                 <div class="menu-card menu-expandable group bg-white/40 dark:bg-zinc-900/40 backdrop-blur-sm rounded-3xl border border-zinc-200/60 dark:border-zinc-800/80 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary-500/5 dark:hover:shadow-primary-500/5 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between" style="display: none;" data-category="desserts">
                     <div class="relative overflow-hidden aspect-[4/3] bg-zinc-100 dark:bg-zinc-950">
-                        <img alt="Rose Milk" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="rose_milk.png" loading="lazy" />
+                        <img alt="Rose Milk" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="rose_milk.webp" width="400" height="300" loading="lazy" />
                         <span class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Chilled</span>
                         <span class="absolute top-4 right-4 bg-zinc-950/70 backdrop-blur-sm text-white p-1.5 rounded-full flex items-center justify-center">
                             <span class="w-2.5 h-2.5 bg-green-500 rounded-full border border-white" title="Vegetarian"></span>
@@ -1064,7 +953,7 @@
                 <div class="space-y-4">
                     <div class="flex flex-col">
                         <span class="font-display font-extrabold text-zinc-900 dark:text-white text-2xl tracking-tight leading-none">ALLWIN'S KITCHEN</span>
-                        <span class="text-xs text-primary-500 font-display tracking-widest font-bold mt-1 uppercase">x The Curry Madurai</span>
+                        <span class="text-xs text-primary-500 font-display tracking-widest font-bold mt-1 uppercase">✕ The Curry | Taste of Madurai</span>
                     </div>
                     <p class="text-sm leading-relaxed text-zinc-650 dark:text-zinc-400">
                         Bringing genuine Madurai-style food heritage straight to your home in Whitefield. Made with clean, authentic ingredients and a lot of love.
@@ -1110,12 +999,10 @@
                     <h3 class="font-display font-bold text-zinc-900 dark:text-white text-base tracking-wider uppercase mb-4">Opening Hours</h3>
                     <ul class="space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
                         <li class="flex justify-between border-b border-zinc-200 dark:border-zinc-900 pb-1.5">
-                            <span>Mon - Fri</span>
-                            <span class="font-bold text-zinc-900 dark:text-white">10:00 AM - 10:00 PM</span>
+                            <span class="font-bold text-zinc-900 dark:text-white">11:30 AM - 3:30 PM</span>
                         </li>
                         <li class="flex justify-between">
-                            <span>Sat - Sun</span>
-                            <span class="font-bold text-zinc-900 dark:text-white">11:00 AM - 11:00 PM</span>
+                            <span class="font-bold text-zinc-900 dark:text-white">6:00 PM - 11:00 PM</span>
                         </li>
                     </ul>
                     <div class="flex gap-4 mt-6">
@@ -1190,8 +1077,10 @@
                     } else {
                         card.style.display = 'flex';
                         card.classList.remove('menu-card-animate');
-                        void card.offsetWidth; // Force reflow
-                        card.classList.add('menu-card-animate');
+                        // Use rAF instead of forced reflow (void offsetWidth) to restart animation
+                        requestAnimationFrame(() => {
+                            requestAnimationFrame(() => card.classList.add('menu-card-animate'));
+                        });
                     }
                 } else {
                     card.style.display = 'none';

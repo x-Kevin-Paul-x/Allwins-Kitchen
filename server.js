@@ -1,35 +1,41 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const compression = require('compression');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Startup diagnostics
-console.log('--- Startup Diagnostics ---');
-console.log('Current __dirname:', __dirname);
-try {
-    console.log('Files in __dirname:', fs.readdirSync(__dirname));
-    const publicPath = path.join(__dirname, 'public');
-    if (fs.existsSync(publicPath)) {
-        console.log('Files in public/ directory:', fs.readdirSync(publicPath));
-    } else {
-        console.log('WARNING: public/ directory does not exist at:', publicPath);
+// ─── Gzip / Brotli compression ────────────────────────────────────────────────
+// Compresses all text responses (HTML, CSS, JS, JSON). Reduces HTML from
+// ~100 KB to ~18 KB on the wire.
+app.use(compression());
+
+// ─── Static file serving with cache headers ───────────────────────────────────
+app.use(express.static(path.join(__dirname, 'public'), {
+    setHeaders: (res, filePath) => {
+        if (filePath.endsWith('.html')) {
+            // HTML: always revalidate so updates are seen immediately
+            res.setHeader('Cache-Control', 'no-cache');
+        } else if (/\.(webp|png|jpe?g|svg|ico|gif)$/i.test(filePath)) {
+            // Images: cache for 1 year — use new filename to bust cache if image changes
+            res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+        } else if (/\.(css|js)$/i.test(filePath)) {
+            // CSS / JS: cache for 1 year — use new filename to bust cache if file changes
+            res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+        } else if (/\.(pdf)$/i.test(filePath)) {
+            // PDFs: cache for 1 day
+            res.setHeader('Cache-Control', 'public, max-age=86400');
+        }
     }
-} catch (err) {
-    console.error('Error during startup diagnostics:', err.message);
-}
-console.log('---------------------------');
+}));
 
-// Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Diagnostic test route
+// ─── Diagnostic route ─────────────────────────────────────────────────────────
 app.get('/ping', (req, res) => {
-    res.send({ status: 'ok', time: new Date(), message: 'Pong from Allwins Kitchen server' });
+    res.json({ status: 'ok', time: new Date(), message: 'Pong from Allwins Kitchen server' });
 });
 
-// Serve the main HTML file for the root route
+// ─── Root route ───────────────────────────────────────────────────────────────
 app.get('/', (req, res) => {
     const indexPath = path.join(__dirname, 'public', 'index.html');
     res.sendFile(indexPath, (err) => {
@@ -40,13 +46,12 @@ app.get('/', (req, res) => {
     });
 });
 
-// Handle 404 - redirect to home
+// ─── 404 fallback → home ──────────────────────────────────────────────────────
 app.use((req, res) => {
-    console.log('404 Route hit for:', req.originalUrl);
-    res.redirect('/');
+    res.redirect(301, '/');
 });
 
-// Start the server
+// ─── Start ────────────────────────────────────────────────────────────────────
 app.listen(PORT, () => {
     console.log(`🍳 Allwin's Kitchen server is running on port ${PORT}`);
     console.log(`   Visit: http://localhost:${PORT}`);
